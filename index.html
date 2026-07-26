@@ -6,463 +6,591 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta name="description"
-        content="Ashwinikumar - Senior Software Engineer specialising in backend development, distributed systems, payments, APIs and cloud architecture." />
+        content="Ashwinikumar Vishwakarma - Senior Full Stack Software Engineer & Technical Integration Manager specializing in distributed systems, real-time data streaming, financial tech, and cloud architecture." />
 
-    <title>Ashwinikumar | Senior Software Engineer</title>
+    <title>Ashwinikumar Vishwakarma | Senior Full Stack Software Engineer</title>
 
-    <link rel="stylesheet" href="assets/style.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/style.css" />
 </head>
 
 <body>
 
+    <!-- NAVBAR -->
     <header class="navbar">
         <div class="container nav-container">
-
             <a href="index.html" class="logo">
                 Ashwinikumar<span>.</span>
             </a>
 
-            <nav>
+            <nav class="nav-links">
                 <a href="#about">About</a>
                 <a href="#experience">Experience</a>
                 <a href="#skills">Skills</a>
-                <a href="projects.html">Projects</a>
-                <a href="#contact">Contact</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#contact" class="nav-cta">Contact</a>
             </nav>
 
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
-
 
     <main>
 
         <!-- HERO SECTION -->
-
         <section class="hero">
             <div class="container hero-content">
-
                 <div class="hero-text">
+                    <div class="location-badge">
+                        <span class="pulse-dot"></span>
+                        Dubai, UAE &bull; Technical Integration Manager & Senior Full Stack Engineer
+                    </div>
 
-                    <p class="eyebrow">
-                        SENIOR SOFTWARE ENGINEER
-                    </p>
-
-                    <h1>
-                        Building reliable software for
-                        <span>complex systems.</span>
+                    <h1 class="hero-title">
+                        Architecting scalable <span>financial infrastructure</span> & real-time analytics.
                     </h1>
 
                     <p class="hero-description">
-                        I am a software engineer specialising in backend development,
-                        distributed systems, payment platforms, APIs and scalable
-                        enterprise applications.
+                        Over 6 years of engineering experience building enterprise-grade financial systems, 
+                        high-volume iGaming analytics platforms, real-time telemetry streaming pipelines (Debezium/Kafka/DuckDB), 
+                        and automated workflows.
                     </p>
 
                     <div class="hero-buttons">
-
                         <a href="projects.html" class="button primary-button">
-                            View My Projects
+                            Explore Featured Projects &rarr;
                         </a>
-
                         <a href="#contact" class="button secondary-button">
                             Get In Touch
                         </a>
-
                     </div>
-
                 </div>
 
                 <div class="hero-card">
-
                     <div class="code-window">
-
                         <div class="window-header">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                            <div class="dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="window-title">engineer.ts</div>
                         </div>
 
                         <pre><code><span class="keyword">const</span> engineer = {
-  name: <span class="string">"Ashwinikumar"</span>,
-  focus: [
-    <span class="string">"Distributed Systems"</span>,
-    <span class="string">"Backend Architecture"</span>,
-    <span class="string">"Payment Systems"</span>
+  name: <span class="string">"Ashwinikumar Vishwakarma"</span>,
+  title: <span class="string">"Senior Full Stack Engineer & Tech Integration Mgr"</span>,
+  location: <span class="string">"Dubai, UAE"</span>,
+  experience: <span class="string">"6+ Years"</span>,
+  coreStack: [
+    <span class="string">"TypeScript"</span>, <span class="string">"C#"</span>, <span class="string">"Go"</span>, <span class="string">"Python"</span>,
+    <span class="string">"React / Next.js"</span>, <span class="string">"Node.js / NestJS"</span>,
+    <span class="string">"Kafka / Debezium"</span>, <span class="string">"DuckDB / MongoDB"</span>
   ],
-  mindset: <span class="string">"Build. Learn. Improve."</span>
+  focus: [
+    <span class="string">"Distributed Systems & Telemetry Sinks"</span>,
+    <span class="string">"Automated Financial & Regulatory Workflows"</span>,
+    <span class="string">"High-Performance Cloud Architecture"</span>
+  ]
 };</code></pre>
-
                     </div>
-
                 </div>
-
             </div>
         </section>
 
+        <!-- IMPACT METRICS -->
+        <section class="metrics-bar">
+            <div class="container metrics-grid">
+                <div class="metric-item">
+                    <div class="metric-number">6+</div>
+                    <div class="metric-label">Years Engineering Experience</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-number">40%</div>
+                    <div class="metric-label">Margin Processing Speedup (CME SPAN2)</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-number">80%</div>
+                    <div class="metric-label">Reduction in Manual Case Tracking</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-number">Sub-Sec</div>
+                    <div class="metric-label">Real-Time Telemetry Streaming Latency</div>
+                </div>
+            </div>
+        </section>
 
-        <!-- ABOUT -->
-
+        <!-- ABOUT SECTION -->
         <section id="about" class="section">
-
             <div class="container">
-
                 <div class="section-heading">
                     <p class="eyebrow">ABOUT ME</p>
-                    <h2>Engineering with a focus on solving real problems.</h2>
+                    <h2>Solving complex technical challenges with clean architecture.</h2>
                 </div>
 
                 <div class="about-grid">
-
-                    <div>
-
+                    <div class="about-bio">
                         <p>
-                            I am a software engineer with professional experience in
-                            designing, developing and maintaining enterprise-grade
-                            software systems.
+                            I am a <strong>Senior Full Stack Software Engineer & Technical Integration Manager</strong> based in Dubai, UAE. 
+                            With over 6 years of hands-on experience, I design, architect, and deploy high-availability distributed systems, 
+                            financial transaction engines, and real-time analytical streaming platforms.
                         </p>
-
                         <p>
-                            My primary focus is backend engineering, distributed
-                            systems and designing reliable services that can operate
-                            efficiently in complex business environments.
+                            My recent work includes sole-architecture of a modern Backoffice analytics platform for iGaming (streaming high-volume bet, player, and RTP telemetry via Debezium & Kafka directly to DuckDB with Azure Blob backups), as well as pioneering automated commercial terms and margin processing systems using CME SPAN2 APIs and FIX Protocol at Marex Capital.
                         </p>
-
                         <p>
-                            I enjoy working on challenging technical problems involving
-                            system architecture, APIs, asynchronous processing,
-                            payments, data consistency and scalability.
+                            Whether building greenfield microservices, leading cross-company B2B technical integrations, or automating release lifecycles with Azure DevOps CI/CD, I focus on system resilience, data integrity, and operational cost reduction.
                         </p>
-
                     </div>
 
                     <div class="about-highlight">
-
                         <div class="highlight-item">
-                            <strong>Backend</strong>
-                            <span>APIs, Services & Architecture</span>
+                            <div class="highlight-icon">⚡</div>
+                            <div>
+                                <strong>Real-Time Data Pipelines & Telemetry</strong>
+                                <span>Kafka, Debezium, DuckDB, Redis, Airflow & Event-Driven Architecture</span>
+                            </div>
                         </div>
 
                         <div class="highlight-item">
-                            <strong>Distributed Systems</strong>
-                            <span>Events, Messaging & Resilience</span>
+                            <div class="highlight-icon">🏦</div>
+                            <div>
+                                <strong>Financial & Regulatory Systems</strong>
+                                <span>CME SPAN2 APIs, FIX Protocol, FATCA/CRS, WorldCheckOne & Automated Approvals</span>
+                            </div>
                         </div>
 
                         <div class="highlight-item">
-                            <strong>Cloud</strong>
-                            <span>Azure & Cloud-Native Applications</span>
+                            <div class="highlight-icon">☁️</div>
+                            <div>
+                                <strong>Full Stack & Cloud Architecture</strong>
+                                <span>React, Next.js, Node.js, .NET Core, Azure DevOps, Docker, Terraform & Microservices</span>
+                            </div>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- EXPERIENCE -->
-
+        <!-- EXPERIENCE SECTION -->
         <section id="experience" class="section section-dark">
-
             <div class="container">
-
                 <div class="section-heading">
-                    <p class="eyebrow">EXPERIENCE</p>
-                    <h2>Building software across complex technical domains.</h2>
+                    <p class="eyebrow">PROFESSIONAL EXPERIENCE</p>
+                    <h2>Proven track record across fintech, iGaming & enterprise software.</h2>
                 </div>
 
-                <div class="experience-list">
+                <div class="timeline">
 
-                    <div class="experience-item">
-
-                        <div class="experience-number">
-                            01
+                    <!-- ROLE 1 -->
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="role-badge">Current Role</span>
+                                <h3 class="role-title">Technical Integration Manager</h3>
+                                <p class="company-name">Seyran Digital Technology LLC (Exagaming) &bull; Dubai, UAE</p>
+                            </div>
+                            <div class="role-period">Jun 2026 – Present</div>
                         </div>
 
-                        <div>
+                        <ul class="role-bullets">
+                            <li>
+                                Acted as the <strong>sole engineer</strong> architecting and developing a modern full-stack Backoffice analytics platform (Next.js, Node.js, MongoDB) from scratch to replace legacy systems, significantly reducing operational costs for the iGaming provider.
+                            </li>
+                            <li>
+                                Engineered a real-time telemetry sink microservice using <strong>Debezium and Kafka</strong> to stream high-volume game data (players, bets, transactions, RTP) directly into <strong>DuckDB</strong>, serving as a lightning-fast analytical database with Azure Blob backups.
+                            </li>
+                            <li>
+                                Implemented granular, custom <strong>Role-Based Access Control (RBAC)</strong> across all UI pages and API endpoints for internal administrators.
+                            </li>
+                            <li>
+                                Architected modern CI/CD pipelines via Azure DevOps, enforcing strict branch policies, mandatory code reviews, automated BDD test execution, and multi-stage deployments.
+                            </li>
+                            <li>
+                                Managed end-to-end B2B game integrations with client casinos and third-party platforms as primary technical lead.
+                            </li>
+                        </ul>
 
-                            <h3>Backend Engineering</h3>
-
-                            <p>
-                                Designing and implementing robust backend services,
-                                REST APIs and business applications using modern
-                                software engineering practices.
-                            </p>
-
+                        <div class="role-tags">
+                            <span>Next.js</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                            <span>Kafka</span>
+                            <span>Debezium</span>
+                            <span>DuckDB</span>
+                            <span>Azure DevOps</span>
+                            <span>RBAC</span>
                         </div>
-
                     </div>
 
-
-                    <div class="experience-item">
-
-                        <div class="experience-number">
-                            02
+                    <!-- ROLE 2 -->
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="role-title">Software Developer</h3>
+                                <p class="company-name">Marex Capital (AD) Limited (formerly AARNA Capital Limited) &bull; Dubai, UAE</p>
+                            </div>
+                            <div class="role-period">Nov 2023 – Jun 2026</div>
                         </div>
 
-                        <div>
+                        <ul class="role-bullets">
+                            <li>
+                                Engineered an <strong>Automated Commercial Terms system</strong>, replacing manual email and Word-based agreement processing with automated document generation, version control, multi-stage approval workflows, and strict regulatory audit trails.
+                            </li>
+                            <li>
+                                Led development of greenfield .NET applications, including automated Case Management Systems (<strong>reducing manual tracking by 80%</strong>) and Risk Management modules.
+                            </li>
+                            <li>
+                                <strong>Optimized margin processing time by 40%</strong> using CME SPAN2 APIs and integrated real-time FIX Protocol drop-copy feeds for automated post-trade workflows.
+                            </li>
+                            <li>
+                                Orchestrated complex data workflows using Apache Airflow and deployed containerized microservices via Docker and Jenkins CI/CD pipelines.
+                            </li>
+                        </ul>
 
-                            <h3>Distributed Systems</h3>
-
-                            <p>
-                                Working with distributed workflows, service
-                                communication, asynchronous processing and patterns
-                                for maintaining consistency across services.
-                            </p>
-
+                        <div class="role-tags">
+                            <span>.NET Core</span>
+                            <span>C#</span>
+                            <span>CME SPAN2 API</span>
+                            <span>FIX Protocol</span>
+                            <span>Apache Airflow</span>
+                            <span>Docker</span>
+                            <span>Jenkins</span>
                         </div>
-
                     </div>
 
-
-                    <div class="experience-item">
-
-                        <div class="experience-number">
-                            03
+                    <!-- ROLE 3 -->
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="role-title">Full Stack Developer</h3>
+                                <p class="company-name">AVS Technology</p>
+                            </div>
+                            <div class="role-period">Feb 2022 – Oct 2023</div>
                         </div>
 
-                        <div>
+                        <ul class="role-bullets">
+                            <li>
+                                Developed financial CRM features including Reconciliation, Settlement, and Compliance validations.
+                            </li>
+                            <li>
+                                Integrated third-party AML/compliance screening tools like <strong>WorldCheckOne</strong> and automated FATCA/CRS regulatory compliance workflows.
+                            </li>
+                        </ul>
 
-                            <h3>Payments & Financial Systems</h3>
-
-                            <p>
-                                Experience working with payment-related systems,
-                                transaction workflows and integrations where
-                                reliability and correctness are critical.
-                            </p>
-
+                        <div class="role-tags">
+                            <span>ReactJS</span>
+                            <span>Node.js</span>
+                            <span>Financial CRM</span>
+                            <span>WorldCheckOne</span>
+                            <span>Compliance</span>
                         </div>
-
                     </div>
 
-
-                    <div class="experience-item">
-
-                        <div class="experience-number">
-                            04
+                    <!-- ROLE 4 -->
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="role-title">Jr. Web Developer</h3>
+                                <p class="company-name">Saisanket Industries Pvt. Ltd</p>
+                            </div>
+                            <div class="role-period">Nov 2021 – Feb 2022</div>
                         </div>
 
-                        <div>
+                        <p class="role-summary">
+                            Built RESTful APIs and frontend modules for a Farm Management System using .NET MVC Core and integrated government crop advisory APIs.
+                        </p>
+                    </div>
 
-                            <h3>Enterprise Applications</h3>
-
-                            <p>
-                                Experience working with large business applications,
-                                databases, integrations and systems requiring
-                                maintainability and long-term reliability.
-                            </p>
-
+                    <!-- ROLE 5 & 6 -->
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="role-title">Freelance React Developer & Mathematics Tutor</h3>
+                                <p class="company-name">R.C. Tutorials & Independent Freelance</p>
+                            </div>
+                            <div class="role-period">2018 – 2021</div>
                         </div>
 
+                        <p class="role-summary">
+                            Built a help desk chatbot application using ReactJS with UI-driven logic handling. Taught Mathematics and Organic Chemistry, breaking down complex analytical concepts for college students.
+                        </p>
                     </div>
 
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- SKILLS -->
-
+        <!-- SKILLS SECTION -->
         <section id="skills" class="section">
-
             <div class="container">
-
                 <div class="section-heading">
-
-                    <p class="eyebrow">TECHNICAL SKILLS</p>
-
-                    <h2>Tools and technologies I work with.</h2>
-
+                    <p class="eyebrow">TECHNICAL STACK</p>
+                    <h2>Technologies & tools I work with daily.</h2>
                 </div>
-
 
                 <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">💻</div>
+                        <h3>Languages</h3>
+                        <div class="tags">
+                            <span>TypeScript</span>
+                            <span>JavaScript</span>
+                            <span>C#</span>
+                            <span>Go</span>
+                            <span>Python</span>
+                            <span>Node.js</span>
+                            <span>NestJS</span>
+                        </div>
+                    </div>
 
                     <div class="skill-card">
-
-                        <h3>Backend</h3>
-
+                        <div class="skill-icon">🎨</div>
+                        <h3>Frontend</h3>
                         <div class="tags">
-                            <span>C#</span>
-                            <span>.NET</span>
-                            <span>ASP.NET Core</span>
-                            <span>REST APIs</span>
+                            <span>ReactJS</span>
+                            <span>Next.js (App Router)</span>
+                            <span>Tailwind CSS</span>
+                            <span>Material UI</span>
+                            <span>HTML5 / CSS3</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">⚙️</div>
+                        <h3>Backend & APIs</h3>
+                        <div class="tags">
+                            <span>Node.js</span>
+                            <span>.NET Core</span>
+                            <span>FastAPI</span>
+                            <span>RESTful APIs</span>
+                            <span>GraphQL</span>
                             <span>Microservices</span>
                         </div>
-
                     </div>
 
+                    <div class="skill-card">
+                        <div class="skill-icon">🗄️</div>
+                        <h3>Databases & Data</h3>
+                        <div class="tags">
+                            <span>MongoDB</span>
+                            <span>PostgreSQL</span>
+                            <span>SQL Server</span>
+                            <span>Redis</span>
+                            <span>DuckDB</span>
+                            <span>Kafka</span>
+                            <span>Debezium</span>
+                        </div>
+                    </div>
 
                     <div class="skill-card">
-
-                        <h3>Architecture</h3>
-
+                        <div class="skill-icon">🛠️</div>
+                        <h3>DevOps & Cloud</h3>
                         <div class="tags">
-                            <span>Distributed Systems</span>
+                            <span>Azure DevOps</span>
+                            <span>Docker</span>
+                            <span>Jenkins</span>
+                            <span>Apache Airflow</span>
+                            <span>Azure Blob Storage</span>
+                            <span>AWS</span>
+                            <span>Terraform</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">📐</div>
+                        <h3>Architecture & Practices</h3>
+                        <div class="tags">
                             <span>Saga Pattern</span>
+                            <span>Distributed Systems</span>
                             <span>Event-Driven Systems</span>
                             <span>Clean Architecture</span>
-                            <span>Domain-Driven Design</span>
+                            <span>CI/CD Automation</span>
+                            <span>RBAC & Security</span>
                         </div>
-
                     </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- FEATURED PROJECTS SECTION -->
+        <section id="projects" class="section section-dark">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">FEATURED ENGINEERING PROJECTS</p>
+                    <h2>Deep dive into architecture & implementation.</h2>
+                </div>
 
-                    <div class="skill-card">
+                <div class="projects-list">
 
-                        <h3>Databases</h3>
-
-                        <div class="tags">
-                            <span>SQL Server</span>
-                            <span>Azure SQL</span>
-                            <span>MongoDB</span>
-                            <span>Entity Framework</span>
+                    <!-- PROJECT 1 -->
+                    <article class="project-card featured-project">
+                        <div class="project-number">01</div>
+                        <div class="project-content">
+                            <p class="project-category">DISTRIBUTED SYSTEMS & CONSISTENCY</p>
+                            <h2>Distributed Saga Bridge</h2>
+                            <p>
+                                A gateway bridging high-frequency HTTP webhooks to a flaky WebSocket ledger with strict consistency requirements. Implemented a Saga state machine for out-of-order events, Redis Redlock for distributed locking to ensure serialized state transitions, resilient circuit breakers, and exponential backoff retry loops.
+                            </p>
+                            <div class="project-tags">
+                                <span>.NET</span>
+                                <span>C#</span>
+                                <span>Saga Pattern</span>
+                                <span>Redis Redlock</span>
+                                <span>Circuit Breaker</span>
+                                <span>Distributed Systems</span>
+                            </div>
+                            <a href="https://github.com/Ashwinikumar0/distributed-saga-bridge" target="_blank" rel="noopener noreferrer" class="project-link">
+                                View Repository on GitHub &rarr;
+                            </a>
                         </div>
+                    </article>
 
-                    </div>
-
-
-                    <div class="skill-card">
-
-                        <h3>Frontend</h3>
-
-                        <div class="tags">
-                            <span>React</span>
-                            <span>Angular</span>
-                            <span>JavaScript</span>
-                            <span>TypeScript</span>
+                    <!-- PROJECT 2 -->
+                    <article class="project-card">
+                        <div class="project-number">02</div>
+                        <div class="project-content">
+                            <p class="project-category">EVENT-DRIVEN & ALGORITHMIC PIPELINE</p>
+                            <h2>Strategy Conversion & Signal Pipeline</h2>
+                            <p>
+                                A full-stack pipeline converting TradingView Pine Script EMA crossover logic into a production-ready Python backtesting engine. Features a custom OHLCV data-quality pipeline, FastAPI webhook ingestion with strict validation, and automated trading strategy reporting across JSON, HTML, and Markdown.
+                            </p>
+                            <div class="project-tags">
+                                <span>Python</span>
+                                <span>FastAPI</span>
+                                <span>TradingView Webhooks</span>
+                                <span>OHLCV Pipeline</span>
+                                <span>Backtesting Engine</span>
+                            </div>
+                            <a href="https://github.com/Ashwinikumar0/strategy-conversion-signal-execution-pipeline" target="_blank" rel="noopener noreferrer" class="project-link">
+                                View Repository on GitHub &rarr;
+                            </a>
                         </div>
+                    </article>
 
-                    </div>
-
-
-                    <div class="skill-card">
-
-                        <h3>Cloud & DevOps</h3>
-
-                        <div class="tags">
-                            <span>Microsoft Azure</span>
-                            <span>Azure DevOps</span>
-                            <span>CI/CD</span>
-                            <span>Git</span>
-                            <span>GitHub</span>
+                    <!-- PROJECT 3 -->
+                    <article class="project-card">
+                        <div class="project-number">03</div>
+                        <div class="project-content">
+                            <p class="project-category">FULL STACK SAAS & REAL-TIME EVENTS</p>
+                            <h2>AI Resume Builder</h2>
+                            <p>
+                                A full-stack Next.js SaaS platform for resume management featuring live previews, subscription-gated features, Razorpay webhooks for real-time payment subscription events over Socket.io, Vercel Blob storage, and debounced server actions for high-performance state management.
+                            </p>
+                            <div class="project-tags">
+                                <span>Next.js</span>
+                                <span>TypeScript</span>
+                                <span>Razorpay Webhooks</span>
+                                <span>Socket.io</span>
+                                <span>Vercel Blob</span>
+                            </div>
+                            <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer" class="project-link">
+                                View All Repositories on GitHub &rarr;
+                            </a>
                         </div>
-
-                    </div>
-
-
-                    <div class="skill-card">
-
-                        <h3>Engineering Practices</h3>
-
-                        <div class="tags">
-                            <span>Unit Testing</span>
-                            <span>Code Reviews</span>
-                            <span>API Design</span>
-                            <span>Performance</span>
-                            <span>Debugging</span>
-                        </div>
-
-                    </div>
+                    </article>
 
                 </div>
 
+                <div class="projects-cta">
+                    <a href="projects.html" class="button primary-button">
+                        View All Projects & Architecture Breakdowns &rarr;
+                    </a>
+                </div>
             </div>
-
         </section>
 
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">EDUCATION</p>
+                    <h2>Academic background.</h2>
+                </div>
 
-        <!-- CTA -->
+                <div class="education-card">
+                    <div class="edu-icon">🎓</div>
+                    <div>
+                        <h3>Bachelor of Technology (IT)</h3>
+                        <p class="edu-institution">K.J. Somaiya College of Engineering, Mumbai University</p>
+                        <p class="edu-desc">Specialized in Information Technology, Software Engineering, Algorithms, and Operating Systems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section class="cta-section">
-
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section cta-section">
             <div class="container cta-content">
-
-                <p class="eyebrow">PROJECTS</p>
-
-                <h2>
-                    Interested in how I approach technical problems?
-                </h2>
-
+                <p class="eyebrow">GET IN TOUCH</p>
+                <h2>Let's build something remarkable together.</h2>
                 <p>
-                    Explore some of my personal projects involving distributed
-                    systems, payment architecture and event-driven processing.
+                    I am open to discussing high-scale backend engineering, real-time data streaming architectures, 
+                    fintech solutions, and technical leadership opportunities.
                 </p>
 
-                <a href="projects.html" class="button primary-button">
-                    Explore Projects
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- CONTACT -->
-
-        <section id="contact" class="section">
-
-            <div class="container contact-content">
-
-                <div>
-
-                    <p class="eyebrow">CONTACT</p>
-
-                    <h2>Let's connect.</h2>
-
-                    <p>
-                        I am always open to discussing interesting engineering
-                        problems, software architecture and potential opportunities.
-                    </p>
-
+                <div class="contact-methods">
+                    <a href="mailto:ashwinivishwakarma98@gmail.com" class="button primary-button">
+                        📧 Email: ashwinivishwakarma98@gmail.com
+                    </a>
+                    <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer" class="button secondary-button icon-button">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        GitHub: Ashwinikumar0
+                    </a>
+                    <a href="https://www.linkedin.com/in/ashwinikumar-v/" target="_blank" rel="noopener noreferrer" class="button secondary-button icon-button">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        LinkedIn Profile
+                    </a>
                 </div>
-
-                <div class="contact-links">
-
-                    <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer">
-                        GitHub
-                    </a>
-
-                    <!-- Replace with your actual LinkedIn profile -->
-
-                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-                        LinkedIn
-                    </a>
-
-                    <!-- Replace with your actual email -->
-
-                    <a href="mailto:your-email@example.com">
-                        Email
-                    </a>
-
-                </div>
-
             </div>
-
         </section>
 
     </main>
 
-
+    <!-- FOOTER -->
     <footer>
-
         <div class="container footer-content">
-
             <p>
-                © 2026 Ashwinikumar. Built with HTML & CSS.
+                &copy; 2026 Ashwinikumar Vishwakarma. Built with HTML, Vanilla CSS &amp; Modern Web Standards.
             </p>
-
-            <a href="projects.html">
-                View Projects →
-            </a>
-
+            <div class="footer-links">
+                <a href="#about">Top &uarr;</a>
+                <a href="projects.html">All Projects &rarr;</a>
+            </div>
         </div>
-
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            const nav = document.querySelector('.nav-links');
+            if (toggle && nav) {
+                toggle.addEventListener('click', () => {
+                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                    if (nav.style.display === 'flex') {
+                        nav.style.flexDirection = 'column';
+                        nav.style.position = 'absolute';
+                        nav.style.top = '80px';
+                        nav.style.left = '0';
+                        nav.style.right = '0';
+                        nav.style.background = '#090d16';
+                        nav.style.padding = '20px';
+                        nav.style.borderBottom = '1px solid #334155';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
