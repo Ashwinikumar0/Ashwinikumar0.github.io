@@ -8,7 +8,7 @@
     <meta name="description"
         content="Ashwinikumar Vishwakarma - Senior Full Stack Software Engineer & Technical Integration Manager specializing in distributed systems, real-time data streaming, financial tech, and cloud architecture." />
 
-    <title>Ashwinikumar Vishwakarma | Senior Full Stack Software Engineer</title>
+    <title>Ashwinikumar Vishwakarma | Senior Full Stack Engineer</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,8 +67,8 @@
                     </p>
 
                     <div class="hero-buttons">
-                        <a href="projects.html" class="button primary-button">
-                            Explore Featured Projects &rarr;
+                        <a href="#projects" class="button primary-button">
+                            Explore Engineering Projects &rarr;
                         </a>
                         <a href="#contact" class="button secondary-button">
                             Get In Touch
@@ -92,16 +92,12 @@
   title: <span class="string">"Senior Full Stack Engineer & Tech Integration Mgr"</span>,
   location: <span class="string">"Dubai, UAE"</span>,
   experience: <span class="string">"6+ Years"</span>,
-  coreStack: [
+  stack: [
     <span class="string">"TypeScript"</span>, <span class="string">"C#"</span>, <span class="string">"Go"</span>, <span class="string">"Python"</span>,
-    <span class="string">"React / Next.js"</span>, <span class="string">"Node.js / NestJS"</span>,
-    <span class="string">"Kafka / Debezium"</span>, <span class="string">"DuckDB / MongoDB"</span>
+    <span class="string">"React/Next.js"</span>, <span class="string">"Node.js/NestJS"</span>,
+    <span class="string">"Kafka/Debezium"</span>, <span class="string">"DuckDB/MongoDB"</span>
   ],
-  focus: [
-    <span class="string">"Distributed Systems & Telemetry Sinks"</span>,
-    <span class="string">"Automated Financial & Regulatory Workflows"</span>,
-    <span class="string">"High-Performance Cloud Architecture"</span>
-  ]
+  mindset: <span class="string">"Build resilient. Measure real-time."</span>
 };</code></pre>
                     </div>
                 </div>
@@ -117,15 +113,15 @@
                 </div>
                 <div class="metric-item">
                     <div class="metric-number">40%</div>
-                    <div class="metric-label">Margin Processing Speedup (CME SPAN2)</div>
+                    <div class="metric-label">Margin Speedup (CME SPAN2)</div>
                 </div>
                 <div class="metric-item">
                     <div class="metric-number">80%</div>
-                    <div class="metric-label">Reduction in Manual Case Tracking</div>
+                    <div class="metric-label">Manual Tracking Reduction</div>
                 </div>
                 <div class="metric-item">
                     <div class="metric-number">Sub-Sec</div>
-                    <div class="metric-label">Real-Time Telemetry Streaming Latency</div>
+                    <div class="metric-label">Real-Time Telemetry Streaming</div>
                 </div>
             </div>
         </section>
@@ -158,7 +154,7 @@
                             <div class="highlight-icon">⚡</div>
                             <div>
                                 <strong>Real-Time Data Pipelines & Telemetry</strong>
-                                <span>Kafka, Debezium, DuckDB, Redis, Airflow & Event-Driven Architecture</span>
+                                <span>Kafka, Debezium, DuckDB, Redis, Airflow & Event-Driven Systems</span>
                             </div>
                         </div>
 
@@ -205,7 +201,7 @@
 
                         <ul class="role-bullets">
                             <li>
-                                Acted as the <strong>sole engineer</strong> architecting and developing a modern full-stack Backoffice analytics platform (Next.js, Node.js, MongoDB) from scratch to replace legacy systems, significantly reducing operational costs for the iGaming provider.
+                                Acted as the <strong>sole engineer</strong> architecting and developing a modern full-stack Backoffice analytics platform (Next.js, Node.js, MongoDB) from scratch to replace legacy systems, significantly reducing operational costs.
                             </li>
                             <li>
                                 Engineered a real-time telemetry sink microservice using <strong>Debezium and Kafka</strong> to stream high-volume game data (players, bets, transactions, RTP) directly into <strong>DuckDB</strong>, serving as a lightning-fast analytical database with Azure Blob backups.
@@ -431,80 +427,153 @@
                     <h2>Deep dive into architecture & implementation.</h2>
                 </div>
 
-                <div class="projects-list">
+                <div class="projects-grid-container">
 
                     <!-- PROJECT 1 -->
-                    <article class="project-card featured-project">
-                        <div class="project-number">01</div>
+                    <article class="project-card">
+                        <div class="project-header-row">
+                            <span class="project-number">01</span>
+                            <span class="project-category">DISTRIBUTED SYSTEMS</span>
+                        </div>
                         <div class="project-content">
-                            <p class="project-category">DISTRIBUTED SYSTEMS & CONSISTENCY</p>
                             <h2>Distributed Saga Bridge</h2>
                             <p>
-                                A gateway bridging high-frequency HTTP webhooks to a flaky WebSocket ledger with strict consistency requirements. Implemented a Saga state machine for out-of-order events, Redis Redlock for distributed locking to ensure serialized state transitions, resilient circuit breakers, and exponential backoff retry loops.
+                                High-throughput gateway bridging HTTP webhooks to a flaky WebSocket ledger. Implemented a Saga state machine for out-of-order events, Redis Redlock for distributed locking, circuit breakers, and exponential backoff retry loops.
                             </p>
-                            <div class="project-tags">
-                                <span>.NET</span>
-                                <span>C#</span>
-                                <span>Saga Pattern</span>
-                                <span>Redis Redlock</span>
-                                <span>Circuit Breaker</span>
-                                <span>Distributed Systems</span>
-                            </div>
-                            <a href="https://github.com/Ashwinikumar0/distributed-saga-bridge" target="_blank" rel="noopener noreferrer" class="project-link">
-                                View Repository on GitHub &rarr;
-                            </a>
                         </div>
+                        <div class="project-tags">
+                            <span>.NET Core</span>
+                            <span>C#</span>
+                            <span>Saga Pattern</span>
+                            <span>Redis Redlock</span>
+                            <span>Circuit Breakers</span>
+                        </div>
+                        <a href="https://github.com/Ashwinikumar0/distributed-saga-bridge" target="_blank" rel="noopener noreferrer" class="project-link">
+                            View Repository on GitHub &rarr;
+                        </a>
                     </article>
 
                     <!-- PROJECT 2 -->
                     <article class="project-card">
-                        <div class="project-number">02</div>
+                        <div class="project-header-row">
+                            <span class="project-number">02</span>
+                            <span class="project-category">EVENT-DRIVEN & PYTHON</span>
+                        </div>
                         <div class="project-content">
-                            <p class="project-category">EVENT-DRIVEN & ALGORITHMIC PIPELINE</p>
                             <h2>Strategy Conversion & Signal Pipeline</h2>
                             <p>
-                                A full-stack pipeline converting TradingView Pine Script EMA crossover logic into a production-ready Python backtesting engine. Features a custom OHLCV data-quality pipeline, FastAPI webhook ingestion with strict validation, and automated trading strategy reporting across JSON, HTML, and Markdown.
+                                Converts TradingView Pine Script EMA crossover logic into a Python backtesting engine. Features a custom OHLCV data-quality pipeline, FastAPI webhook ingestion with strict validation, and automated reporting.
                             </p>
-                            <div class="project-tags">
-                                <span>Python</span>
-                                <span>FastAPI</span>
-                                <span>TradingView Webhooks</span>
-                                <span>OHLCV Pipeline</span>
-                                <span>Backtesting Engine</span>
-                            </div>
-                            <a href="https://github.com/Ashwinikumar0/strategy-conversion-signal-execution-pipeline" target="_blank" rel="noopener noreferrer" class="project-link">
-                                View Repository on GitHub &rarr;
-                            </a>
                         </div>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>FastAPI</span>
+                            <span>TradingView Webhooks</span>
+                            <span>OHLCV Pipeline</span>
+                        </div>
+                        <a href="https://github.com/Ashwinikumar0/strategy-conversion-signal-execution-pipeline" target="_blank" rel="noopener noreferrer" class="project-link">
+                            View Repository on GitHub &rarr;
+                        </a>
                     </article>
 
                     <!-- PROJECT 3 -->
                     <article class="project-card">
-                        <div class="project-number">03</div>
-                        <div class="project-content">
-                            <p class="project-category">FULL STACK SAAS & REAL-TIME EVENTS</p>
-                            <h2>AI Resume Builder</h2>
-                            <p>
-                                A full-stack Next.js SaaS platform for resume management featuring live previews, subscription-gated features, Razorpay webhooks for real-time payment subscription events over Socket.io, Vercel Blob storage, and debounced server actions for high-performance state management.
-                            </p>
-                            <div class="project-tags">
-                                <span>Next.js</span>
-                                <span>TypeScript</span>
-                                <span>Razorpay Webhooks</span>
-                                <span>Socket.io</span>
-                                <span>Vercel Blob</span>
-                            </div>
-                            <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer" class="project-link">
-                                View All Repositories on GitHub &rarr;
-                            </a>
+                        <div class="project-header-row">
+                            <span class="project-number">03</span>
+                            <span class="project-category">PAYMENT SYSTEMS</span>
                         </div>
+                        <div class="project-content">
+                            <h2>Tap Payment Processing Engine</h2>
+                            <p>
+                                Payment-focused transaction engine with webhook payload verification, payment idempotency handling, transaction failure recovery, and structured regulatory audit logs.
+                            </p>
+                        </div>
+                        <div class="project-tags">
+                            <span>Node.js</span>
+                            <span>Payments API</span>
+                            <span>Webhook Validation</span>
+                            <span>Idempotency</span>
+                        </div>
+                        <a href="https://github.com/Ashwinikumar0/tap-payment" target="_blank" rel="noopener noreferrer" class="project-link">
+                            View Repository on GitHub &rarr;
+                        </a>
+                    </article>
+
+                    <!-- PROJECT 4 -->
+                    <article class="project-card">
+                        <div class="project-header-row">
+                            <span class="project-number">04</span>
+                            <span class="project-category">REAL-TIME STREAMING</span>
+                        </div>
+                        <div class="project-content">
+                            <h2>iGaming Telemetry Sink</h2>
+                            <p>
+                                Microservice using Debezium and Kafka streaming high-volume game data (players, bets, RTP) into DuckDB analytical database with Azure Blob backups.
+                            </p>
+                        </div>
+                        <div class="project-tags">
+                            <span>Debezium</span>
+                            <span>Kafka</span>
+                            <span>DuckDB</span>
+                            <span>Azure Blob</span>
+                            <span>Node.js</span>
+                        </div>
+                        <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer" class="project-link">
+                            View Profile Repositories &rarr;
+                        </a>
+                    </article>
+
+                    <!-- PROJECT 5 -->
+                    <article class="project-card">
+                        <div class="project-header-row">
+                            <span class="project-number">05</span>
+                            <span class="project-category">FULL STACK SAAS</span>
+                        </div>
+                        <div class="project-content">
+                            <h2>AI Resume Builder SaaS</h2>
+                            <p>
+                                Full-stack Next.js (App Router) SaaS platform featuring live interactive previews, Razorpay payment webhooks over Socket.io, Vercel Blob storage, and debounced server actions.
+                            </p>
+                        </div>
+                        <div class="project-tags">
+                            <span>Next.js</span>
+                            <span>TypeScript</span>
+                            <span>Razorpay Webhooks</span>
+                            <span>Socket.io</span>
+                        </div>
+                        <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer" class="project-link">
+                            View Profile Repositories &rarr;
+                        </a>
+                    </article>
+
+                    <!-- PROJECT 6 -->
+                    <article class="project-card">
+                        <div class="project-header-row">
+                            <span class="project-number">06</span>
+                            <span class="project-category">FINANCIAL AUTOMATION</span>
+                        </div>
+                        <div class="project-content">
+                            <h2>Commercial Terms & SPAN2 Engine</h2>
+                            <p>
+                                Enterprise system replacing manual agreements with automated document generation, versioning, approval workflows, and CME SPAN2 API margin calculations (40% speedup).
+                            </p>
+                        </div>
+                        <div class="project-tags">
+                            <span>.NET Core</span>
+                            <span>C#</span>
+                            <span>CME SPAN2 API</span>
+                            <span>FIX Protocol</span>
+                        </div>
+                        <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer" class="project-link">
+                            View Profile Repositories &rarr;
+                        </a>
                     </article>
 
                 </div>
 
                 <div class="projects-cta">
                     <a href="projects.html" class="button primary-button">
-                        View All Projects & Architecture Breakdowns &rarr;
+                        View All Engineering Projects & Architecture Details &rarr;
                     </a>
                 </div>
             </div>
@@ -544,11 +613,11 @@
                         📧 Email: ashwinivishwakarma98@gmail.com
                     </a>
                     <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer" class="button secondary-button icon-button">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                         GitHub: Ashwinikumar0
                     </a>
                     <a href="https://www.linkedin.com/in/ashwinikumar-v/" target="_blank" rel="noopener noreferrer" class="button secondary-button icon-button">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                         LinkedIn Profile
                     </a>
                 </div>
@@ -580,11 +649,11 @@
                     if (nav.style.display === 'flex') {
                         nav.style.flexDirection = 'column';
                         nav.style.position = 'absolute';
-                        nav.style.top = '80px';
+                        nav.style.top = '64px';
                         nav.style.left = '0';
                         nav.style.right = '0';
                         nav.style.background = '#090d16';
-                        nav.style.padding = '20px';
+                        nav.style.padding = '16px';
                         nav.style.borderBottom = '1px solid #334155';
                     }
                 });

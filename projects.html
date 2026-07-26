@@ -8,7 +8,7 @@
     <meta name="description"
         content="Projects by Ashwinikumar Vishwakarma - Distributed systems, event-driven pipelines, payment architectures, and AI SaaS applications." />
 
-    <title>Featured Projects | Ashwinikumar Vishwakarma</title>
+    <title>Featured Engineering Projects | Ashwinikumar Vishwakarma</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,6 +35,12 @@
                 <a href="projects.html" class="active">Projects</a>
                 <a href="index.html#contact" class="nav-cta">Contact</a>
             </nav>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
@@ -43,136 +49,194 @@
         <!-- PAGE HERO -->
         <section class="page-hero">
             <div class="container">
-                <p class="eyebrow">FEATURED ENGINEERING PROJECTS</p>
-                <h1>Systems built to solve <span>complex engineering challenges.</span></h1>
+                <p class="eyebrow">ENGINEERING PROJECTS GALLERY</p>
+                <h1>Systems built to solve <span>complex technical challenges.</span></h1>
                 <p>
-                    A comprehensive showcase of distributed transaction engines, real-time data pipelines, 
-                    fintech automations, and full-stack SaaS applications.
+                    A comprehensive showcase of distributed transaction engines, real-time data streaming pipelines, 
+                    fintech automations, and full-stack SaaS platforms.
                 </p>
             </div>
         </section>
 
         <!-- PROJECTS LIST -->
         <section class="section">
-            <div class="container projects-list">
+            <div class="container">
+                
+                <div class="projects-grid-container">
 
-                <!-- PROJECT 1 -->
-                <article class="project-card featured-project">
-                    <div class="project-number">01</div>
-                    <div class="project-content">
-                        <p class="project-category">DISTRIBUTED SYSTEMS & CONSISTENCY</p>
-                        <h2>Distributed Saga Bridge</h2>
-                        <p>
-                            <strong>Architecture:</strong> A high-throughput gateway bridging high-frequency HTTP webhooks to a flaky WebSocket ledger with strict transactional consistency requirements.
-                        </p>
-                        <p>
-                            <strong>Key Engineering Highlights:</strong>
-                            Implemented a Saga state machine to gracefully handle out-of-order events and retries. Utilized Redis Redlock for distributed locking across microservice nodes to ensure serialized state transitions. Built resilient circuit breakers and exponential backoff retry loops for network tolerance.
-                        </p>
+                    <!-- PROJECT 1 -->
+                    <article class="project-card">
+                        <div class="project-header-row">
+                            <span class="project-number">01</span>
+                            <span class="project-category">DISTRIBUTED SYSTEMS & CONSISTENCY</span>
+                        </div>
+                        <div class="project-content">
+                            <h2>Distributed Saga Bridge</h2>
+                            <p>
+                                <strong>Architecture:</strong> A high-throughput gateway bridging high-frequency HTTP webhooks to a flaky WebSocket ledger with strict transactional consistency requirements.
+                            </p>
+                            <p>
+                                <strong>Highlights:</strong> Implemented a Saga state machine for out-of-order events. Utilized Redis Redlock for distributed locking across microservices to ensure serialized state transitions. Built resilient circuit breakers and exponential backoff retry loops.
+                            </p>
+                        </div>
                         <div class="project-tags">
                             <span>.NET Core</span>
                             <span>C#</span>
                             <span>Saga Pattern</span>
                             <span>Redis Redlock</span>
-                            <span>Circuit Breaker</span>
-                            <span>Distributed Locking</span>
-                            <span>Microservices</span>
+                            <span>Circuit Breakers</span>
+                            <span>Distributed Systems</span>
                         </div>
                         <a href="https://github.com/Ashwinikumar0/distributed-saga-bridge" target="_blank" rel="noopener noreferrer" class="project-link">
                             View Repository on GitHub &rarr;
                         </a>
-                    </div>
-                </article>
+                    </article>
 
-                <!-- PROJECT 2 -->
-                <article class="project-card">
-                    <div class="project-number">02</div>
-                    <div class="project-content">
-                        <p class="project-category">EVENT-DRIVEN & ALGORITHMIC PIPELINE</p>
-                        <h2>Strategy Conversion & Signal Execution Pipeline</h2>
-                        <p>
-                            <strong>Architecture:</strong> A full-stack pipeline converting TradingView Pine Script EMA crossover logic into a production-ready Python backtesting and execution engine.
-                        </p>
-                        <p>
-                            <strong>Key Engineering Highlights:</strong>
-                            Engineered a custom OHLCV data-quality pipeline to validate incoming candlestick data. Built FastAPI webhook ingestion with strict JSON validation and rate-limiting. Automated trading strategy reporting across JSON, interactive HTML, and Markdown formats.
-                        </p>
+                    <!-- PROJECT 2 -->
+                    <article class="project-card">
+                        <div class="project-header-row">
+                            <span class="project-number">02</span>
+                            <span class="project-category">EVENT-DRIVEN & ALGORITHMIC PIPELINE</span>
+                        </div>
+                        <div class="project-content">
+                            <h2>Strategy Conversion & Signal Pipeline</h2>
+                            <p>
+                                <strong>Architecture:</strong> Full-stack pipeline converting TradingView Pine Script EMA crossover logic into a production-ready Python backtesting engine.
+                            </p>
+                            <p>
+                                <strong>Highlights:</strong> Custom OHLCV data-quality validation pipeline, FastAPI webhook ingestion with strict schema checking and rate-limiting, automated trading strategy reporting (JSON/HTML/Markdown).
+                            </p>
+                        </div>
                         <div class="project-tags">
                             <span>Python</span>
                             <span>FastAPI</span>
                             <span>TradingView Webhooks</span>
                             <span>OHLCV Pipeline</span>
                             <span>Backtesting Engine</span>
-                            <span>Event Processing</span>
                         </div>
                         <a href="https://github.com/Ashwinikumar0/strategy-conversion-signal-execution-pipeline" target="_blank" rel="noopener noreferrer" class="project-link">
                             View Repository on GitHub &rarr;
                         </a>
-                    </div>
-                </article>
+                    </article>
 
-                <!-- PROJECT 3 -->
-                <article class="project-card">
-                    <div class="project-number">03</div>
-                    <div class="project-content">
-                        <p class="project-category">FULL STACK SAAS & REAL-TIME EVENTS</p>
-                        <h2>AI Resume Builder</h2>
-                        <p>
-                            <strong>Architecture:</strong> A full-stack Next.js (App Router) SaaS platform for resume creation and management with live interactive previews and subscription-gated features.
-                        </p>
-                        <p>
-                            <strong>Key Engineering Highlights:</strong>
-                            Integrated Razorpay webhooks for real-time payment subscription events broadcasted via Socket.io. Utilized Vercel Blob for secure cloud storage and debounced server actions for high-performance state management without client lag.
-                        </p>
+                    <!-- PROJECT 3 -->
+                    <article class="project-card">
+                        <div class="project-header-row">
+                            <span class="project-number">03</span>
+                            <span class="project-category">PAYMENT SYSTEMS & INTEGRATIONS</span>
+                        </div>
+                        <div class="project-content">
+                            <h2>Tap Payment Processing Engine</h2>
+                            <p>
+                                <strong>Architecture:</strong> Transaction engine exploring payment processing patterns, webhook payload verification, and third-party gateway integrations.
+                            </p>
+                            <p>
+                                <strong>Highlights:</strong> Implemented secure signature verification, idempotent payment request processing, transaction failure recovery workflows, and audit trails.
+                            </p>
+                        </div>
+                        <div class="project-tags">
+                            <span>Node.js</span>
+                            <span>REST APIs</span>
+                            <span>Payments</span>
+                            <span>Webhook Validation</span>
+                            <span>Idempotency</span>
+                        </div>
+                        <a href="https://github.com/Ashwinikumar0/tap-payment" target="_blank" rel="noopener noreferrer" class="project-link">
+                            View Repository on GitHub &rarr;
+                        </a>
+                    </article>
+
+                    <!-- PROJECT 4 -->
+                    <article class="project-card">
+                        <div class="project-header-row">
+                            <span class="project-number">04</span>
+                            <span class="project-category">REAL-TIME DATA STREAMING</span>
+                        </div>
+                        <div class="project-content">
+                            <h2>iGaming Telemetry Sink</h2>
+                            <p>
+                                <strong>Architecture:</strong> Telemetry sink microservice streaming high-volume game data (players, bets, transactions, RTP) into DuckDB with Azure Blob backups.
+                            </p>
+                            <p>
+                                <strong>Highlights:</strong> Leveraged Debezium CDC and Apache Kafka to process raw change data capture streams without impacting production MongoDB workloads, serving sub-second queries.
+                            </p>
+                        </div>
+                        <div class="project-tags">
+                            <span>Debezium</span>
+                            <span>Kafka</span>
+                            <span>DuckDB</span>
+                            <span>Azure Blob</span>
+                            <span>Node.js</span>
+                        </div>
+                        <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer" class="project-link">
+                            View Profile Repositories &rarr;
+                        </a>
+                    </article>
+
+                    <!-- PROJECT 5 -->
+                    <article class="project-card">
+                        <div class="project-header-row">
+                            <span class="project-number">05</span>
+                            <span class="project-category">FULL STACK SAAS & REAL-TIME EVENTS</span>
+                        </div>
+                        <div class="project-content">
+                            <h2>AI Resume Builder SaaS</h2>
+                            <p>
+                                <strong>Architecture:</strong> Next.js (App Router) SaaS platform for resume creation and management with live previews and subscription gating.
+                            </p>
+                            <p>
+                                <strong>Highlights:</strong> Razorpay webhooks for real-time payment subscription events over Socket.io, Vercel Blob storage, and debounced server actions for high-performance state updates.
+                            </p>
+                        </div>
                         <div class="project-tags">
                             <span>Next.js</span>
                             <span>TypeScript</span>
                             <span>Razorpay Webhooks</span>
                             <span>Socket.io</span>
                             <span>Vercel Blob</span>
-                            <span>Tailwind CSS</span>
                         </div>
                         <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer" class="project-link">
-                            View Repository on GitHub &rarr;
+                            View Profile Repositories &rarr;
                         </a>
-                    </div>
-                </article>
+                    </article>
 
-                <!-- PROJECT 4 -->
-                <article class="project-card">
-                    <div class="project-number">04</div>
-                    <div class="project-content">
-                        <p class="project-category">PAYMENT SYSTEMS & INTEGRATIONS</p>
-                        <h2>Tap Payment Engine</h2>
-                        <p>
-                            <strong>Architecture:</strong> A backend transaction engine exploring payment processing patterns, webhook validation, and third-party gateway integrations.
-                        </p>
-                        <p>
-                            <strong>Key Engineering Highlights:</strong>
-                            Implemented secure payload verification, idempotent payment request processing, transaction failure recovery, and structured audit logs.
-                        </p>
-                        <div class="project-tags">
-                            <span>Payments</span>
-                            <span>REST APIs</span>
-                            <span>Node.js</span>
-                            <span>Transaction Idempotency</span>
-                            <span>Webhooks</span>
+                    <!-- PROJECT 6 -->
+                    <article class="project-card">
+                        <div class="project-header-row">
+                            <span class="project-number">06</span>
+                            <span class="project-category">FINANCIAL AUTOMATION & MARGIN ENGINE</span>
                         </div>
-                        <a href="https://github.com/Ashwinikumar0/tap-payment" target="_blank" rel="noopener noreferrer" class="project-link">
-                            View Repository on GitHub &rarr;
+                        <div class="project-content">
+                            <h2>Commercial Terms & SPAN2 Engine</h2>
+                            <p>
+                                <strong>Architecture:</strong> Enterprise fintech automation system replacing manual agreements with automated document generation, multi-stage approvals, and margin processing.
+                            </p>
+                            <p>
+                                <strong>Highlights:</strong> Reduced margin calculation latency by 40% via CME SPAN2 APIs and integrated real-time FIX Protocol drop-copy feeds for automated post-trade workflows.
+                            </p>
+                        </div>
+                        <div class="project-tags">
+                            <span>.NET Core</span>
+                            <span>C#</span>
+                            <span>CME SPAN2 API</span>
+                            <span>FIX Protocol</span>
+                            <span>Apache Airflow</span>
+                        </div>
+                        <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer" class="project-link">
+                            View Profile Repositories &rarr;
                         </a>
-                    </div>
-                </article>
+                    </article>
 
-                <!-- PROFESSIONAL NOTE -->
-                <article class="professional-note">
-                    <p class="eyebrow">ENTERPRISE & PROPRIETARY WORK</p>
-                    <h2>Corporate Systems & Enterprise Architectures</h2>
-                    <p>
-                        A significant portion of my 6+ years of engineering experience (such as Marex Capital's Automated Commercial Terms & CME SPAN2 Margin Engine, and Seyran Digital's Debezium/Kafka/DuckDB Telemetry Sink) was developed under proprietary corporate contracts.
-                        The projects highlighted above demonstrate the core architectural principles and technical design patterns applied in those enterprise environments.
-                    </p>
-                </article>
+                    <!-- PROFESSIONAL NOTE -->
+                    <article class="professional-note">
+                        <h2>Enterprise & Proprietary Systems</h2>
+                        <p>
+                            A significant portion of my 6+ years of engineering work (such as Marex Capital's Automated Commercial Terms system & CME SPAN2 engine, and Seyran Digital's Backoffice analytics platform) was developed under proprietary corporate contracts.
+                            The 6 projects showcased above represent open-source repositories and architectural design patterns applied across those enterprise platforms.
+                        </p>
+                    </article>
+
+                </div>
 
             </div>
         </section>
@@ -227,11 +291,11 @@
                     if (nav.style.display === 'flex') {
                         nav.style.flexDirection = 'column';
                         nav.style.position = 'absolute';
-                        nav.style.top = '80px';
+                        nav.style.top = '64px';
                         nav.style.left = '0';
                         nav.style.right = '0';
                         nav.style.background = '#090d16';
-                        nav.style.padding = '20px';
+                        nav.style.padding = '16px';
                         nav.style.borderBottom = '1px solid #334155';
                     }
                 });
