@@ -13,7 +13,9 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="./assets/style.css" />
@@ -61,9 +63,7 @@
                     </h1>
 
                     <p class="hero-description">
-                        Over 6 years of engineering experience building enterprise-grade financial systems, 
-                        high-volume iGaming analytics platforms, real-time telemetry streaming pipelines (Debezium/Kafka/DuckDB), 
-                        and automated workflows.
+                        Senior engineer building enterprise-grade financial systems, high-volume iGaming analytics platforms, real-time telemetry streaming pipelines (Debezium/Kafka/DuckDB), and automated workflows.
                     </p>
 
                     <div class="hero-buttons">
@@ -77,28 +77,55 @@
                 </div>
 
                 <div class="hero-card">
-                    <div class="code-window">
-                        <div class="window-header">
-                            <div class="dots">
-                                <span class="dot red"></span>
-                                <span class="dot yellow"></span>
-                                <span class="dot green"></span>
+                    <div class="hero-dashboard">
+                        <div class="dashboard-header">
+                            <div class="status-indicator">
+                                <span class="status-dot"></span>
+                                <span class="status-text">SYSTEM STATUS &bull; OPERATIONAL</span>
                             </div>
-                            <div class="window-title">engineer.ts</div>
+                            <span class="dashboard-badge">ENTERPRISE LEAD</span>
                         </div>
 
-                        <pre><code><span class="keyword">const</span> engineer = {
-  name: <span class="string">"Ashwinikumar Vishwakarma"</span>,
-  title: <span class="string">"Senior Full Stack Engineer & Tech Integration Mgr"</span>,
-  location: <span class="string">"Dubai, UAE"</span>,
-  experience: <span class="string">"6+ Years"</span>,
-  stack: [
-    <span class="string">"TypeScript"</span>, <span class="string">"C#"</span>, <span class="string">"Go"</span>, <span class="string">"Python"</span>,
-    <span class="string">"React/Next.js"</span>, <span class="string">"Node.js/NestJS"</span>,
-    <span class="string">"Kafka/Debezium"</span>, <span class="string">"DuckDB/MongoDB"</span>
-  ],
-  mindset: <span class="string">"Build resilient. Measure real-time."</span>
-};</code></pre>
+                        <div class="dashboard-body">
+                            <div class="dashboard-row">
+                                <span class="row-icon">⚡</span>
+                                <div>
+                                    <div class="row-title">Real-Time Data Pipelines</div>
+                                    <div class="row-desc">Debezium &bull; Kafka &bull; DuckDB &bull; Redis</div>
+                                </div>
+                            </div>
+
+                            <div class="dashboard-row">
+                                <span class="row-icon">🏦</span>
+                                <div>
+                                    <div class="row-title">Financial Engine Automation</div>
+                                    <div class="row-desc">CME SPAN2 &bull; FIX Protocol &bull; C# / .NET</div>
+                                </div>
+                            </div>
+
+                            <div class="dashboard-row">
+                                <span class="row-icon">🔒</span>
+                                <div>
+                                    <div class="row-title">Zero-Knowledge Security</div>
+                                    <div class="row-desc">KeyVault &bull; AES-256-GCM &bull; PBKDF2 &bull; Go</div>
+                                </div>
+                            </div>
+
+                            <div class="dashboard-row">
+                                <span class="row-icon">🚀</span>
+                                <div>
+                                    <div class="row-title">Full Stack Analytics</div>
+                                    <div class="row-desc">Next.js &bull; TypeScript &bull; Node.js &bull; MongoDB</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-footer">
+                            <span class="impact-label">CORE ENGINEERING MINDSET</span>
+                            <div class="impact-quote">
+                                &ldquo;Architect for Zero-Downtime Resilience. Stream in Real-Time.&rdquo;
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -108,8 +135,8 @@
         <section class="metrics-bar">
             <div class="container metrics-grid">
                 <div class="metric-item">
-                    <div class="metric-number">6+</div>
-                    <div class="metric-label">Years Engineering Experience</div>
+                    <div class="metric-number">Fintech &amp; iGaming</div>
+                    <div class="metric-label">Production Infrastructure</div>
                 </div>
                 <div class="metric-item">
                     <div class="metric-number">40%</div>
@@ -137,40 +164,46 @@
                 <div class="about-grid">
                     <div class="about-bio">
                         <p>
-                            I am a <strong>Senior Full Stack Software Engineer & Technical Integration Manager</strong> based in Dubai, UAE. 
-                            With over 6 years of hands-on experience, I design, architect, and deploy high-availability distributed systems, 
+                            I am a <strong>Senior Full Stack Software Engineer & Technical Integration Manager</strong>
+                            based in Dubai, UAE.
+                            I design, architect, and deploy high-availability distributed systems,
                             financial transaction engines, and real-time analytical streaming platforms.
                         </p>
                         <p>
-                            My recent work includes sole-architecture of a modern Backoffice analytics platform for iGaming (streaming high-volume bet, player, and RTP telemetry via Debezium & Kafka directly to DuckDB with Azure Blob backups), as well as pioneering automated commercial terms and margin processing systems using CME SPAN2 APIs and FIX Protocol at Marex Capital.
+                            My recent work includes sole-architecture of a modern Backoffice analytics platform for
+                            iGaming (streaming high-volume bet, player, and RTP telemetry via Debezium & Kafka directly
+                            to DuckDB with Azure Blob backups), as well as pioneering automated commercial terms and
+                            margin processing systems using CME SPAN2 APIs and FIX Protocol at Marex Capital.
                         </p>
                         <p>
-                            Whether building greenfield microservices, leading cross-company B2B technical integrations, or automating release lifecycles with Azure DevOps CI/CD, I focus on system resilience, data integrity, and operational cost reduction.
+                            Whether building greenfield microservices, leading cross-company B2B technical integrations,
+                            or automating release lifecycles with Azure DevOps CI/CD, I focus on system resilience, data
+                            integrity, and operational cost reduction.
                         </p>
                     </div>
 
                     <div class="about-highlight">
                         <div class="highlight-item">
-                            <div class="highlight-icon">⚡</div>
+                            <div class="highlight-icon">🎯</div>
                             <div>
-                                <strong>Real-Time Data Pipelines & Telemetry</strong>
-                                <span>Kafka, Debezium, DuckDB, Redis, Airflow & Event-Driven Systems</span>
+                                <strong>Sole Architecture &amp; System Ownership</strong>
+                                <span>Building greenfield platforms from scratch, replacing legacy systems &amp; reducing operational costs.</span>
                             </div>
                         </div>
 
                         <div class="highlight-item">
-                            <div class="highlight-icon">🏦</div>
+                            <div class="highlight-icon">💼</div>
                             <div>
-                                <strong>Financial & Regulatory Systems</strong>
-                                <span>CME SPAN2 APIs, FIX Protocol, FATCA/CRS, WorldCheckOne & Automated Approvals</span>
+                                <strong>B2B Technical Lead &amp; Integrations</strong>
+                                <span>Managing end-to-end B2B casino &amp; platform integrations as primary technical liaison.</span>
                             </div>
                         </div>
 
                         <div class="highlight-item">
-                            <div class="highlight-icon">☁️</div>
+                            <div class="highlight-icon">🛠️</div>
                             <div>
-                                <strong>Full Stack & Cloud Architecture</strong>
-                                <span>React, Next.js, Node.js, .NET Core, Azure DevOps, Docker, Terraform & Microservices</span>
+                                <strong>DevOps &amp; Release Automation</strong>
+                                <span>Enforcing CI/CD pipelines, mandatory code reviews, multi-stage builds &amp; BDD test execution.</span>
                             </div>
                         </div>
                     </div>
@@ -201,19 +234,27 @@
 
                         <ul class="role-bullets">
                             <li>
-                                Acted as the <strong>sole engineer</strong> architecting and developing a modern full-stack Backoffice analytics platform (Next.js, Node.js, MongoDB) from scratch to replace legacy systems, significantly reducing operational costs.
+                                Acted as the <strong>sole engineer</strong> architecting and developing a modern
+                                full-stack Backoffice analytics platform (Next.js, Node.js, MongoDB) from scratch to
+                                replace legacy systems, significantly reducing operational costs.
                             </li>
                             <li>
-                                Engineered a real-time telemetry sink microservice using <strong>Debezium and Kafka</strong> to stream high-volume game data (players, bets, transactions, RTP) directly into <strong>DuckDB</strong>, serving as a lightning-fast analytical database with Azure Blob backups.
+                                Engineered a real-time telemetry sink microservice using <strong>Debezium and
+                                    Kafka</strong> to stream high-volume game data (players, bets, transactions, RTP)
+                                directly into <strong>DuckDB</strong>, serving as a lightning-fast analytical database
+                                with Azure Blob backups.
                             </li>
                             <li>
-                                Implemented granular, custom <strong>Role-Based Access Control (RBAC)</strong> across all UI pages and API endpoints for internal administrators.
+                                Implemented granular, custom <strong>Role-Based Access Control (RBAC)</strong> across
+                                all UI pages and API endpoints for internal administrators.
                             </li>
                             <li>
-                                Architected modern CI/CD pipelines via Azure DevOps, enforcing strict branch policies, mandatory code reviews, automated BDD test execution, and multi-stage deployments.
+                                Architected modern CI/CD pipelines via Azure DevOps, enforcing strict branch policies,
+                                mandatory code reviews, automated BDD test execution, and multi-stage deployments.
                             </li>
                             <li>
-                                Managed end-to-end B2B game integrations with client casinos and third-party platforms as primary technical lead.
+                                Managed end-to-end B2B game integrations with client casinos and third-party platforms
+                                as primary technical lead.
                             </li>
                         </ul>
 
@@ -234,32 +275,46 @@
                         <div class="timeline-header">
                             <div>
                                 <h3 class="role-title">Software Developer</h3>
-                                <p class="company-name">Marex Capital (AD) Limited (formerly known as Aarna Capital Limited) &bull; Abu Dhabi, UAE</p>
+                                <p class="company-name">Marex Capital (AD) Limited (formerly known as Aarna Capital
+                                    Limited) &bull; Abu Dhabi, UAE</p>
                             </div>
                             <div class="role-period">Nov 2023 – Jun 2026</div>
                         </div>
 
                         <ul class="role-bullets">
                             <li>
-                                Led development of greenfield <strong>C# MVC applications</strong> aligned with global technology standards, building test-driven <strong>GraphQL APIs on MongoDB</strong> integrated into responsive <strong>TypeScript + ReactJS</strong> frontends.
+                                Led development of greenfield <strong>C# MVC applications</strong> aligned with global
+                                technology standards, building test-driven <strong>GraphQL APIs on MongoDB</strong>
+                                integrated into responsive <strong>TypeScript + ReactJS</strong> frontends.
                             </li>
                             <li>
-                                Developed and maintained enterprise CRM modules for <strong>Risk Management, Vendor Oversight, Margin Calls, and Account Opening</strong> for regulated entities.
+                                Developed and maintained enterprise CRM modules for <strong>Risk Management, Vendor
+                                    Oversight, Margin Calls, and Account Opening</strong> for regulated entities.
                             </li>
                             <li>
-                                Designed an automated <strong>Case Management System (CMS)</strong> generating, assigning, and escalating alert-driven cases (risk violations, trade mismatches), <strong>reducing manual tracking by 80%</strong>.
+                                Designed an automated <strong>Case Management System (CMS)</strong> generating,
+                                assigning, and escalating alert-driven cases (risk violations, trade mismatches),
+                                <strong>reducing manual tracking by 80%</strong>.
                             </li>
                             <li>
-                                Migrated legacy margin logic to real-time <strong>CME SPAN2 APIs</strong>, improving exposure accuracy and <strong>cutting margin processing time by 40%</strong>.
+                                Migrated legacy margin logic to real-time <strong>CME SPAN2 APIs</strong>, improving
+                                exposure accuracy and <strong>cutting margin processing time by 40%</strong>.
                             </li>
                             <li>
-                                Integrated <strong>FIX Protocol drop-copy feeds</strong> to capture post-trade data across exchanges; automated trade reconciliation, KYC checks, and document sync using <strong>Apache Airflow DAGs</strong>.
+                                Integrated <strong>FIX Protocol drop-copy feeds</strong> to capture post-trade data
+                                across exchanges; automated trade reconciliation, KYC checks, and document sync using
+                                <strong>Apache Airflow DAGs</strong>.
                             </li>
                             <li>
-                                Deployed multi-app infrastructure (CRM, CMS, portals) via <strong>Docker &amp; Jenkins CI/CD</strong> pipelines and built SQL reporting services for Compliance, Risk, and Finance.
+                                Deployed multi-app infrastructure (CRM, CMS, portals) via <strong>Docker &amp; Jenkins
+                                    CI/CD</strong> pipelines and built SQL reporting services for Compliance, Risk, and
+                                Finance.
                             </li>
                             <li>
-                                <strong>Cross-Functional Operations &amp; Platform Support:</strong> Provided continuous hands-on support for post-trade management, backoffice workflows, middle-office processing, case management, and FIX drop-copy trade data uploads across 6 core business units: <em>Operations, Finance, Compliance, Onboarding, Risk, and Trade Support</em>.
+                                <strong>Cross-Functional Operations &amp; Platform Support:</strong> Provided continuous
+                                hands-on support for post-trade management, backoffice workflows, middle-office
+                                processing, case management, and FIX drop-copy trade data uploads across 6 core business
+                                units: <em>Operations, Finance, Compliance, Onboarding, Risk, and Trade Support</em>.
                             </li>
                         </ul>
 
@@ -288,10 +343,12 @@
 
                         <ul class="role-bullets">
                             <li>
-                                Developed financial CRM features including Reconciliation, Settlement, and Compliance validations.
+                                Developed financial CRM features including Reconciliation, Settlement, and Compliance
+                                validations.
                             </li>
                             <li>
-                                Integrated third-party AML/compliance screening tools like <strong>WorldCheckOne</strong> and automated FATCA/CRS regulatory compliance workflows.
+                                Integrated third-party AML/compliance screening tools like
+                                <strong>WorldCheckOne</strong> and automated FATCA/CRS regulatory compliance workflows.
                             </li>
                         </ul>
 
@@ -315,7 +372,8 @@
                         </div>
 
                         <p class="role-summary">
-                            Built RESTful APIs and frontend modules for a Farm Management System using .NET MVC Core and integrated government crop advisory APIs.
+                            Built RESTful APIs and frontend modules for a Farm Management System using .NET MVC Core and
+                            integrated government crop advisory APIs.
                         </p>
                     </div>
 
@@ -330,7 +388,9 @@
                         </div>
 
                         <p class="role-summary">
-                            Built a help desk chatbot application using ReactJS with UI-driven logic handling. Taught Mathematics and Organic Chemistry, breaking down complex analytical concepts for college students.
+                            Built a help desk chatbot application using ReactJS with UI-driven logic handling. Taught
+                            Mathematics and Organic Chemistry, breaking down complex analytical concepts for college
+                            students.
                         </p>
                     </div>
 
@@ -449,7 +509,9 @@
                         <div class="project-content">
                             <h2>Distributed Saga Bridge</h2>
                             <p>
-                                High-throughput gateway bridging HTTP webhooks to a flaky WebSocket ledger. Implemented a Saga state machine for out-of-order events, Redis Redlock for distributed locking, circuit breakers, and exponential backoff retry loops.
+                                High-throughput gateway bridging HTTP webhooks to a flaky WebSocket ledger. Implemented
+                                a Saga state machine for out-of-order events, Redis Redlock for distributed locking,
+                                circuit breakers, and exponential backoff retry loops.
                             </p>
                         </div>
                         <div class="project-tags">
@@ -459,7 +521,8 @@
                             <span>Redis Redlock</span>
                             <span>Circuit Breakers</span>
                         </div>
-                        <a href="https://github.com/Ashwinikumar0/distributed-saga-bridge" target="_blank" rel="noopener noreferrer" class="project-link">
+                        <a href="https://github.com/Ashwinikumar0/distributed-saga-bridge" target="_blank"
+                            rel="noopener noreferrer" class="project-link">
                             View Repository on GitHub &rarr;
                         </a>
                     </article>
@@ -473,7 +536,9 @@
                         <div class="project-content">
                             <h2>Strategy Conversion & Signal Pipeline</h2>
                             <p>
-                                Converts TradingView Pine Script EMA crossover logic into a Python backtesting engine. Features a custom OHLCV data-quality pipeline, FastAPI webhook ingestion with strict validation, and automated reporting.
+                                Converts TradingView Pine Script EMA crossover logic into a Python backtesting engine.
+                                Features a custom OHLCV data-quality pipeline, FastAPI webhook ingestion with strict
+                                validation, and automated reporting.
                             </p>
                         </div>
                         <div class="project-tags">
@@ -482,7 +547,8 @@
                             <span>TradingView Webhooks</span>
                             <span>OHLCV Pipeline</span>
                         </div>
-                        <a href="https://github.com/Ashwinikumar0/strategy-conversion-signal-execution-pipeline" target="_blank" rel="noopener noreferrer" class="project-link">
+                        <a href="https://github.com/Ashwinikumar0/strategy-conversion-signal-execution-pipeline"
+                            target="_blank" rel="noopener noreferrer" class="project-link">
                             View Repository on GitHub &rarr;
                         </a>
                     </article>
@@ -496,7 +562,9 @@
                         <div class="project-content">
                             <h2>Tap Payment Processing Engine</h2>
                             <p>
-                                Payment-focused transaction engine with webhook payload verification, payment idempotency handling, transaction failure recovery, and structured regulatory audit logs.
+                                Payment-focused transaction engine with webhook payload verification, payment
+                                idempotency handling, transaction failure recovery, and structured regulatory audit
+                                logs.
                             </p>
                         </div>
                         <div class="project-tags">
@@ -505,7 +573,8 @@
                             <span>Webhook Validation</span>
                             <span>Idempotency</span>
                         </div>
-                        <a href="https://github.com/Ashwinikumar0/tap-payment" target="_blank" rel="noopener noreferrer" class="project-link">
+                        <a href="https://github.com/Ashwinikumar0/tap-payment" target="_blank" rel="noopener noreferrer"
+                            class="project-link">
                             View Repository on GitHub &rarr;
                         </a>
                     </article>
@@ -519,7 +588,8 @@
                         <div class="project-content">
                             <h2>iGaming Telemetry Sink</h2>
                             <p>
-                                Microservice using Debezium and Kafka streaming high-volume game data (players, bets, RTP) into DuckDB analytical database with Azure Blob backups.
+                                Microservice using Debezium and Kafka streaming high-volume game data (players, bets,
+                                RTP) into DuckDB analytical database with Azure Blob backups.
                             </p>
                         </div>
                         <div class="project-tags">
@@ -529,7 +599,8 @@
                             <span>Azure Blob</span>
                             <span>Node.js</span>
                         </div>
-                        <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer" class="project-link">
+                        <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer"
+                            class="project-link">
                             View Profile Repositories &rarr;
                         </a>
                     </article>
@@ -543,7 +614,9 @@
                         <div class="project-content">
                             <h2>AI Resume Builder SaaS</h2>
                             <p>
-                                Full-stack Next.js (App Router) SaaS platform featuring live interactive previews, Razorpay payment webhooks over Socket.io, Vercel Blob storage, and debounced server actions.
+                                Full-stack Next.js (App Router) SaaS platform featuring live interactive previews,
+                                Razorpay payment webhooks over Socket.io, Vercel Blob storage, and debounced server
+                                actions.
                             </p>
                         </div>
                         <div class="project-tags">
@@ -552,7 +625,8 @@
                             <span>Razorpay Webhooks</span>
                             <span>Socket.io</span>
                         </div>
-                        <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer" class="project-link">
+                        <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer"
+                            class="project-link">
                             View Profile Repositories &rarr;
                         </a>
                     </article>
@@ -566,7 +640,9 @@
                         <div class="project-content">
                             <h2>KeyVault &bull; Zero-Knowledge E2E Encrypted Key Manager</h2>
                             <p>
-                                Production-grade zero-knowledge E2E credential manager. Features client-side PBKDF2 SHA-256 key stretching (100k iterations), in-memory AES-256-GCM encryption with 15-min auto-purge, offline Android APK with embedded SQLite, and a Go REST API backend.
+                                Production-grade zero-knowledge E2E credential manager. Features client-side PBKDF2
+                                SHA-256 key stretching (100k iterations), in-memory AES-256-GCM encryption with 15-min
+                                auto-purge, offline Android APK with embedded SQLite, and a Go REST API backend.
                             </p>
                         </div>
                         <div class="project-tags">
@@ -579,7 +655,8 @@
                             <span>PostgreSQL</span>
                             <span>Playwright / Godog BDD</span>
                         </div>
-                        <a href="https://github.com/Ashwinikumar0/key-vault" target="_blank" rel="noopener noreferrer" class="project-link">
+                        <a href="https://github.com/Ashwinikumar0/key-vault" target="_blank" rel="noopener noreferrer"
+                            class="project-link">
                             View Repository on GitHub &rarr;
                         </a>
                     </article>
@@ -593,7 +670,8 @@
                         <div class="project-content">
                             <h2>Commercial Terms & SPAN2 Engine</h2>
                             <p>
-                                Enterprise system replacing manual agreements with automated document generation, versioning, approval workflows, and CME SPAN2 API margin calculations (40% speedup).
+                                Enterprise system replacing manual agreements with automated document generation,
+                                versioning, approval workflows, and CME SPAN2 API margin calculations (40% speedup).
                             </p>
                         </div>
                         <div class="project-tags">
@@ -602,7 +680,8 @@
                             <span>CME SPAN2 API</span>
                             <span>FIX Protocol</span>
                         </div>
-                        <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer" class="project-link">
+                        <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer"
+                            class="project-link">
                             View Profile Repositories &rarr;
                         </a>
                     </article>
@@ -630,7 +709,8 @@
                     <div>
                         <h3>Bachelor of Technology (IT)</h3>
                         <p class="edu-institution">K.J. Somaiya College of Engineering, Mumbai University</p>
-                        <p class="edu-desc">Specialized in Information Technology, Software Engineering, Algorithms, and Operating Systems.</p>
+                        <p class="edu-desc">Specialized in Information Technology, Software Engineering, Algorithms, and
+                            Operating Systems.</p>
                     </div>
                 </div>
             </div>
@@ -642,7 +722,7 @@
                 <p class="eyebrow">GET IN TOUCH</p>
                 <h2>Let's build something remarkable together.</h2>
                 <p>
-                    I am open to discussing high-scale backend engineering, real-time data streaming architectures, 
+                    Open to discussing high-scale backend engineering, real-time data streaming architectures,
                     fintech solutions, and technical leadership opportunities.
                 </p>
 
@@ -650,12 +730,20 @@
                     <a href="mailto:ashwinivishwakarma98@gmail.com" class="button primary-button">
                         📧 Email: ashwinivishwakarma98@gmail.com
                     </a>
-                    <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer" class="button secondary-button icon-button">
-                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer"
+                        class="button secondary-button icon-button">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                        </svg>
                         GitHub: Ashwinikumar0
                     </a>
-                    <a href="https://www.linkedin.com/in/ashwinikumarv" target="_blank" rel="noopener noreferrer" class="button secondary-button icon-button">
-                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <a href="https://www.linkedin.com/in/ashwinikumarv" target="_blank" rel="noopener noreferrer"
+                        class="button secondary-button icon-button">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
                         LinkedIn Profile
                     </a>
                 </div>
