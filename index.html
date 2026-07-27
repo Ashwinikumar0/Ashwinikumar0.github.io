@@ -27,7 +27,7 @@
     <header class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                Ashwinikumar<span>.</span>
+                Ashwinikumar Vishwakarma<span>.</span>
             </a>
 
             <nav class="nav-links">
@@ -63,7 +63,9 @@
                     </h1>
 
                     <p class="hero-description">
-                        Senior engineer building enterprise-grade financial systems, high-volume iGaming analytics platforms, real-time telemetry streaming pipelines (Debezium/Kafka/DuckDB), and automated workflows.
+                        Senior engineer building enterprise-grade financial systems, high-volume iGaming analytics
+                        platforms, real-time telemetry streaming pipelines (Debezium/Kafka/DuckDB), and automated
+                        workflows.
                     </p>
 
                     <div class="hero-buttons">
@@ -187,7 +189,8 @@
                             <div class="highlight-icon">🎯</div>
                             <div>
                                 <strong>Sole Architecture &amp; System Ownership</strong>
-                                <span>Building greenfield platforms from scratch, replacing legacy systems &amp; reducing operational costs.</span>
+                                <span>Building greenfield platforms from scratch, replacing legacy systems &amp;
+                                    reducing operational costs.</span>
                             </div>
                         </div>
 
@@ -195,7 +198,8 @@
                             <div class="highlight-icon">💼</div>
                             <div>
                                 <strong>B2B Technical Lead &amp; Integrations</strong>
-                                <span>Managing end-to-end B2B casino &amp; platform integrations as primary technical liaison.</span>
+                                <span>Managing end-to-end B2B casino &amp; platform integrations as primary technical
+                                    liaison.</span>
                             </div>
                         </div>
 
@@ -203,7 +207,8 @@
                             <div class="highlight-icon">🛠️</div>
                             <div>
                                 <strong>DevOps &amp; Release Automation</strong>
-                                <span>Enforcing CI/CD pipelines, mandatory code reviews, multi-stage builds &amp; BDD test execution.</span>
+                                <span>Enforcing CI/CD pipelines, mandatory code reviews, multi-stage builds &amp; BDD
+                                    test execution.</span>
                             </div>
                         </div>
                     </div>
@@ -770,17 +775,17 @@
             const toggle = document.querySelector('.mobile-menu-toggle');
             const nav = document.querySelector('.nav-links');
             if (toggle && nav) {
-                toggle.addEventListener('click', () => {
-                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-                    if (nav.style.display === 'flex') {
-                        nav.style.flexDirection = 'column';
-                        nav.style.position = 'absolute';
-                        nav.style.top = '64px';
-                        nav.style.left = '0';
-                        nav.style.right = '0';
-                        nav.style.background = '#090d16';
-                        nav.style.padding = '16px';
-                        nav.style.borderBottom = '1px solid #334155';
+                toggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    nav.classList.toggle('active');
+                    toggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (nav.classList.contains('active') && !nav.contains(e.target) && !toggle.contains(e.target)) {
+                        nav.classList.remove('active');
+                        toggle.classList.remove('active');
                     }
                 });
             }

@@ -317,17 +317,17 @@
             const toggle = document.querySelector('.mobile-menu-toggle');
             const nav = document.querySelector('.nav-links');
             if (toggle && nav) {
-                toggle.addEventListener('click', () => {
-                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-                    if (nav.style.display === 'flex') {
-                        nav.style.flexDirection = 'column';
-                        nav.style.position = 'absolute';
-                        nav.style.top = '64px';
-                        nav.style.left = '0';
-                        nav.style.right = '0';
-                        nav.style.background = '#090d16';
-                        nav.style.padding = '16px';
-                        nav.style.borderBottom = '1px solid #334155';
+                toggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    nav.classList.toggle('active');
+                    toggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (nav.classList.contains('active') && !nav.contains(e.target) && !toggle.contains(e.target)) {
+                        nav.classList.remove('active');
+                        toggle.classList.remove('active');
                     }
                 });
             }
