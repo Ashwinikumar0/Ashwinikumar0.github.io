@@ -120,7 +120,11 @@ ul {
 }
 
 .nav-links .nav-icon {
-    display: none;
+    display: none !important;
+}
+
+.nav-links .nav-label {
+    display: inline !important;
 }
 
 .nav-links a:hover,
@@ -945,7 +949,7 @@ footer {
     }
 
     .nav-links.active .nav-icon {
-        display: inline-flex;
+        display: inline-flex !important;
         align-items: center;
         justify-content: center;
         width: 18px;
@@ -953,7 +957,7 @@ footer {
     }
 
     .nav-links.active .nav-label {
-        display: none;
+        display: none !important;
     }
 
     .mobile-menu-toggle {
