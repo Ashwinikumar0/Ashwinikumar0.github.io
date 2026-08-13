@@ -126,6 +126,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 1e. Full Card Click Handler for Vlog Cards
+    document.querySelectorAll('.vlog-card, .featured-vlog-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            if (e.target.closest('a')) return;
+            const targetLink = card.querySelector('a.vlog-link-btn, a.vlog-card-title-link, a');
+            if (targetLink && targetLink.getAttribute('href')) {
+                window.location.href = targetLink.getAttribute('href');
+            }
+        });
+    });
+
     // 2. Vlog Filtering & Search Logic (on vlogs.html hub page)
     const searchInput = document.getElementById('vlog-search');
     const filterBtns = document.querySelectorAll('.vlog-filter-btn');

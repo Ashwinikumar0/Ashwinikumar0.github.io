@@ -1390,7 +1390,9 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 12px;
     padding-top: 14px;
+    margin-top: auto;
     border-top: 1px solid var(--border-light);
 }
 
@@ -1398,6 +1400,8 @@ footer {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
+    flex: 1;
+    min-width: 0;
 }
 
 .vlog-tag {
@@ -1416,6 +1420,8 @@ footer {
     color: var(--accent-light);
     font-size: 0.82rem;
     font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
     transition: var(--transition);
 }
 
@@ -1439,13 +1445,25 @@ footer {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
     transition: var(--transition);
 }
 
 .vlog-card:hover {
     transform: translateY(-4px);
     border-color: var(--accent-light);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.vlog-card:hover .vlog-card-title {
+    color: var(--accent-light);
+}
+
+.vlog-card:hover .vlog-link-btn {
+    transform: translateX(4px);
 }
 
 .vlog-thumb-wrapper {
