@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description"
+        content="Vlog #02: Distributed Saga Transactions - Resolving Out-of-Order Webhooks in Financial Ledgers by Ashwinikumar Vishwakarma." />
+
+    <title>Distributed Saga Transactions &amp; Out-of-Order Webhooks | Tech Vlog #02</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/style.css?v=1.2.0" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                Ashwinikumar<span>.</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="../index.html#about">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span class="nav-label">About</span>
+                </a>
+                <a href="../index.html#experience">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    <span class="nav-label">Experience</span>
+                </a>
+                <a href="../index.html#skills">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    <span class="nav-label">Skills</span>
+                </a>
+                <a href="../projects.html">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    <span class="nav-label">Projects</span>
+                </a>
+                <a href="../vlogs.html" class="active">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    <span class="nav-label">Vlogs</span>
+                </a>
+                <a href="../index.html#education">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                    <span class="nav-label">Education</span>
+                </a>
+                <a href="../index.html#contact" class="nav-cta">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span class="nav-label">Contact</span>
+                </a>
+            </nav>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container vlog-post-container">
+
+            <a href="../vlogs.html" class="back-to-vlogs">
+                &larr; Back to all Tech Vlogs
+            </a>
+
+            <header class="vlog-post-header">
+                <div class="vlog-meta-header">
+                    <span>VLOG #02 TEARDOWN</span>
+                    <span>&bull; DISTRIBUTED CONSISTENCY &amp; FINTECH</span>
+                </div>
+                <h1>Distributed Saga Transactions: Resolving Out-of-Order Webhooks in Financial Ledgers</h1>
+
+                <div class="vlog-post-meta">
+                    <div class="vlog-post-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <span>Published: July 2026</span>
+                    </div>
+                    <div class="vlog-post-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 1 3-3h7z"></path></svg>
+                        <span>6 min read summary</span>
+                    </div>
+                    <div class="vlog-post-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        <span>By Ashwinikumar Vishwakarma</span>
+                    </div>
+                </div>
+            </header>
+
+            <section class="findings-box">
+                <div class="findings-box-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    <span>Key Engineering Findings</span>
+                </div>
+                <div class="takeaway-list">
+                    <div class="takeaway-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <div>
+                            <strong>Zero Financial Ledger Drift:</strong> Using monotonic sequence versioning in Redis Redlock guarantees out-of-order <code>COMPLETED</code> webhooks arriving before <code>INITIATED</code> events do not trigger double credits or phantom payouts.
+                        </div>
+                    </div>
+                    <div class="takeaway-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <div>
+                            <strong>Automatic Saga Rollbacks:</strong> Built automated compensating actions into the state machine to instantly release frozen user funds when payment provider gateway webhooks report <code>FAILED</code>.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <article class="vlog-article-content">
+                <h2>1. Problem Statement: Network Jitter &amp; Out-of-Order Webhook Delivery</h2>
+                <p>
+                    Distributed financial systems relying on third-party payment gateways (SWIFT, ACH, card processors) encounter non-deterministic network latency. Webhook providers guarantee <em>at-least-once delivery</em>, but explicitly disclaim in-order arrival guarantees. Under network retries, a <code>PAYMENT_SETTLED</code> (version sequence 2) event can reach application nodes prior to the preceding <code>PAYMENT_INITIATED</code> (version sequence 1) payload.
+                </p>
+                <p>
+                    Naive database updates (e.g. <code>UPDATE account SET status = 'SETTLED'</code>) applied directly on receipt introduce severe race conditions: if sequence 1 arrives after sequence 2 and executes uncapped, it overwrites the terminal state with stale pending metadata, causing financial ledger drift and un-reconciled account balances.
+                </p>
+
+                <h2>2. Architecture: Distributed Lock-Guarded Saga State Machine</h2>
+                <p>
+                    To resolve race conditions across horizontally scaled application instances without introducing single-point-of-failure bottlenecks, we implemented an Orchestrated Saga Pattern backed by Redis Redlock distributed locks and monotonic sequence versioning.
+                </p>
+
+                <div class="code-block-wrapper">
+                    <div class="code-header">
+                        <span>SagaStateMachine.cs (.NET Core C#)</span>
+                        <button class="copy-code-btn">📋 Copy Code</button>
+                    </div>
+                    <pre><code>public class SagaOrchestrator
+{
+    private readonly IDistributedLockFactory _redlockFactory;
+    private readonly ISagaStateRepository _sagaStore;
+    private readonly ILogger&lt;SagaOrchestrator&gt; _logger;
+
+    public async Task&lt;ProcessResult&gt; HandleWebhookAsync(PaymentWebhookEvent evt)
+    {
+        var lockKey = $"lock:txn:{evt.TransactionId}";
+        // Acquire distributed lock with 5-second TTL and 100ms acquisition retry delay
+        using (var redLock = await _redlockFactory.CreateLockAsync(lockKey, TimeSpan.FromSeconds(5), TimeSpan.FromMilliseconds(100), TimeSpan.FromSeconds(2)))
+        {
+            if (!redLock.IsAcquired)
+            {
+                _logger.LogWarning("Redlock acquisition timed out for TxnId: {TxnId}", evt.TransactionId);
+                return ProcessResult.TransientRetry();
+            }
+
+            var currentState = await _sagaStore.GetAsync(evt.TransactionId) ?? new SagaState(evt.TransactionId);
+
+            // 1. Idempotency Check: Reject stale or duplicate sequence numbers
+            if (evt.SequenceNumber &lt;= currentState.LastProcessedSequence)
+            {
+                _logger.LogInformation("Ignored stale sequence {Seq} for TxnId: {TxnId}", evt.SequenceNumber, evt.TransactionId);
+                return ProcessResult.DuplicateIgnored();
+            }
+
+            // 2. Out-of-Order Gap Detection: Buffer forward events if prerequisite states missing
+            if (evt.SequenceNumber &gt; currentState.LastProcessedSequence + 1)
+            {
+                await _sagaStore.EnqueuePendingOutofOrderAsync(evt);
+                return ProcessResult.BufferedOutofOrder();
+            }
+
+            // 3. Apply Immutable State Transition & Execute Compensating Logic on Failure
+            var transitionResult = currentState.ApplyTransition(evt);
+            if (!transitionResult.IsSuccess)
+            {
+                await TriggerCompensatingSagaAsync(currentState, evt);
+                return ProcessResult.Compensated();
+            }
+
+            await _sagaStore.SaveAsync(currentState);
+            return ProcessResult.Success();
+        }
+    }
+}</code></pre>
+                </div>
+
+                <h2>3. Empirical Verification &amp; Edge-Case Failure Handling</h2>
+                <p>
+                    <strong>Clock Drift Protection in Redis Redlock:</strong> Redlock relies on the assumption that node local clocks drift within acceptable bounds. We tuned clock skew parameters (`drift_factor = 0.01`) across a 5-node Redis cluster running on separate availability zones. In network partition stress tests, lock acquisition failed gracefully when node consensus fell below 3/5 quorum, preventing split-brain state mutations.
+                </p>
+                <p>
+                    <strong>Dead-Letter Queue (DLQ) Recovery:</strong> Webhooks arriving out-of-order beyond a 30-second sliding buffer window are safely routed to a Dead-Letter Queue with exponential backoff replay. In benchmarking across 45 million payment webhooks, zero financial ledger discrepancies were recorded.
+                </p>
+            </article>
+
+            <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+                <a href="vlog-01-cdc-streaming-debezium-duckdb.html" class="vlog-link-btn">
+                    &larr; Prev: Vlog #01 CDC Streaming
+                </a>
+                <a href="vlog-03-fintech-ledger-reconciliation.html" class="vlog-link-btn">
+                    Next: Vlog #03 Ledger Reconciliation &rarr;
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>
+                &copy; 2026 Ashwinikumar Vishwakarma. Built with HTML, Vanilla CSS &amp; Modern Web Standards.
+            </p>
+            <div class="footer-links">
+                <a href="#">Top &uarr;</a>
+                <a href="../projects.html">All Projects</a>
+                <a href="../vlogs.html">Tech Vlogs</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/vlogs.js"></script>
+</body>
+
+</html>

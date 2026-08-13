@@ -47,6 +47,10 @@
                     <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                     <span class="nav-label">Projects</span>
                 </a>
+                <a href="#vlogs">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    <span class="nav-label">Vlogs</span>
+                </a>
                 <a href="#education">
                     <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
                     <span class="nav-label">Education</span>
@@ -81,7 +85,7 @@
                     </h1>
 
                     <p class="hero-description">
-                        Senior engineer building enterprise-grade financial systems, high-volume iGaming analytics
+                        Senior engineer building enterprise-grade financial systems, high-volume SaaS analytics
                         platforms, real-time telemetry streaming pipelines (Debezium/Kafka/DuckDB), and automated
                         workflows.
                     </p>
@@ -719,6 +723,104 @@
             </div>
         </section>
 
+        <!-- TECH VLOGS PREVIEW SECTION -->
+        <section id="vlogs" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">TECH VLOGS &amp; SYSTEMS TEARDOWNS</p>
+                    <h2>Architectural breakdowns &amp; benchmark findings.</h2>
+                </div>
+
+                <div class="vlogs-grid" style="margin-bottom: 32px;">
+
+                    <!-- VLOG ITEM 1 -->
+                    <article class="vlog-card">
+                        <div class="vlog-card-body">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <span class="vlog-meta-header" style="margin-bottom: 0;">VLOG #01 &bull; FEATURED</span>
+                                    <span style="font-size: 0.75rem; color: var(--text-muted); font-family: 'Fira Code', monospace;">7 min read</span>
+                                </div>
+                                <h3 class="vlog-card-title">100k msg/sec CDC Streaming Pipeline with Debezium, Kafka &amp; DuckDB</h3>
+                                <p class="vlog-card-desc">
+                                    Sub-second real-time telemetry processing using PostgreSQL WAL replication and DuckDB in-memory OLAP.
+                                </p>
+                            </div>
+                            <div class="vlog-card-footer">
+                                <div class="vlog-tags-list">
+                                    <span class="vlog-tag">CDC</span>
+                                    <span class="vlog-tag">Kafka</span>
+                                    <span class="vlog-tag">DuckDB</span>
+                                </div>
+                                <a href="vlogs/vlog-01-cdc-streaming-debezium-duckdb.html" class="vlog-link-btn">
+                                    Read Breakdown &rarr;
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- VLOG ITEM 2 -->
+                    <article class="vlog-card">
+                        <div class="vlog-card-body">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <span class="vlog-meta-header" style="margin-bottom: 0;">VLOG #02 &bull; DISTRIBUTED CONSISTENCY</span>
+                                    <span style="font-size: 0.75rem; color: var(--text-muted); font-family: 'Fira Code', monospace;">6 min read</span>
+                                </div>
+                                <h3 class="vlog-card-title">Distributed Saga Transactions: Resolving Out-of-Order Webhooks</h3>
+                                <p class="vlog-card-desc">
+                                    Preventing race conditions and ledger drift when processing out-of-sequence financial webhooks with Redis Redlock.
+                                </p>
+                            </div>
+                            <div class="vlog-card-footer">
+                                <div class="vlog-tags-list">
+                                    <span class="vlog-tag">.NET Core</span>
+                                    <span class="vlog-tag">Saga</span>
+                                    <span class="vlog-tag">Redis</span>
+                                </div>
+                                <a href="vlogs/vlog-02-saga-distributed-transactions.html" class="vlog-link-btn">
+                                    Read Breakdown &rarr;
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- VLOG ITEM 3 -->
+                    <article class="vlog-card">
+                        <div class="vlog-card-body">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <span class="vlog-meta-header" style="margin-bottom: 0;">VLOG #03 &bull; RECONCILIATION</span>
+                                    <span style="font-size: 0.75rem; color: var(--text-muted); font-family: 'Fira Code', monospace;">8 min read</span>
+                                </div>
+                                <h3 class="vlog-card-title">Post-Trade Management &amp; Reconciliation Engine for Exchange &amp; Broker Feeds</h3>
+                                <p class="vlog-card-desc">
+                                    Automated back-office reconciliation engine auditing multi-asset traded transactions between exchange execution drops and third-party broker clearing statements.
+                                </p>
+                            </div>
+                            <div class="vlog-card-footer">
+                                <div class="vlog-tags-list">
+                                    <span class="vlog-tag">Post-Trade</span>
+                                    <span class="vlog-tag">Reconciliation</span>
+                                    <span class="vlog-tag">Broker Feeds</span>
+                                </div>
+                                <a href="vlogs/vlog-03-fintech-ledger-reconciliation.html" class="vlog-link-btn">
+                                    Read Breakdown &rarr;
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="projects-cta" style="text-align: center;">
+                    <a href="vlogs.html" class="button secondary-button">
+                        Explore All Tech Vlogs &amp; Written Teardowns &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- EDUCATION SECTION -->
         <section id="education" class="section">
             <div class="container">
@@ -788,27 +890,7 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            const nav = document.querySelector('.nav-links');
-            if (toggle && nav) {
-                toggle.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    nav.classList.toggle('active');
-                    toggle.classList.toggle('active');
-                });
-
-                // Close menu when clicking outside
-                document.addEventListener('click', (e) => {
-                    if (nav.classList.contains('active') && !nav.contains(e.target) && !toggle.contains(e.target)) {
-                        nav.classList.remove('active');
-                        toggle.classList.remove('active');
-                    }
-                });
-            }
-        });
-    </script>
+    <script src="./assets/vlogs.js"></script>
 </body>
 
 </html>

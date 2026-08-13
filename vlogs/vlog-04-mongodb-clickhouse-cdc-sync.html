@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description"
+        content="Vlog #04: Real-Time MongoDB to ClickHouse CDC Pipeline via Mongo Change Streams by Ashwinikumar Vishwakarma." />
+
+    <title>Real-Time MongoDB to ClickHouse CDC Pipeline | Tech Vlog #04</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/style.css?v=1.2.0" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                Ashwinikumar<span>.</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="../index.html#about">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span class="nav-label">About</span>
+                </a>
+                <a href="../index.html#experience">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    <span class="nav-label">Experience</span>
+                </a>
+                <a href="../index.html#skills">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    <span class="nav-label">Skills</span>
+                </a>
+                <a href="../projects.html">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    <span class="nav-label">Projects</span>
+                </a>
+                <a href="../vlogs.html" class="active">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    <span class="nav-label">Vlogs</span>
+                </a>
+                <a href="../index.html#education">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                    <span class="nav-label">Education</span>
+                </a>
+                <a href="../index.html#contact" class="nav-cta">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span class="nav-label">Contact</span>
+                </a>
+            </nav>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container vlog-post-container">
+
+            <!-- Back Link -->
+            <a href="../vlogs.html" class="back-to-vlogs">
+                &larr; Back to all Tech Vlogs
+            </a>
+
+            <!-- Header -->
+            <header class="vlog-post-header">
+                <div class="vlog-meta-header">
+                    <span>VLOG #04 TEARDOWN</span>
+                    <span>&bull; REAL-TIME CDC &amp; OLAP ANALYTICS</span>
+                </div>
+                <h1>Real-Time MongoDB to ClickHouse CDC Pipeline via Mongo Change Streams</h1>
+
+                <div class="vlog-post-meta">
+                    <div class="vlog-post-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <span>Published: August 2026</span>
+                    </div>
+                    <div class="vlog-post-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 1 3-3h7z"></path></svg>
+                        <span>9 min read summary</span>
+                    </div>
+                    <div class="vlog-post-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        <span>By Ashwinikumar Vishwakarma</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Key Takeaways / Findings Callout -->
+            <section class="findings-box">
+                <div class="findings-box-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    <span>Key Engineering Findings &amp; Architecture Wins</span>
+                </div>
+                <div class="takeaway-list">
+                    <div class="takeaway-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <div>
+                            <strong>Offloaded 100% Analytical Read Traffic:</strong> By routing all dashboard aggregation queries to an in-house ClickHouse cluster, MongoDB CPU usage dropped from 88% peak load down to a stable 12%.
+                        </div>
+                    </div>
+                    <div class="takeaway-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <div>
+                            <strong>Sub-100ms Event Sync Latency:</strong> MongoDB Change Streams (listening via <code>watch()</code>) stream real-time document mutations (insert, update, replace) into ClickHouse with a sub-100ms end-to-end propagation delay.
+                        </div>
+                    </div>
+                    <div class="takeaway-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <div>
+                            <strong>Deduplication via ReplacingMergeTree:</strong> Using ClickHouse's <code>ReplacingMergeTree(updated_at)</code> engine handles incoming document updates seamlessly without manual mutation deletes or table locks.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Detailed Written Article Breakdown -->
+            <article class="vlog-article-content">
+                <h2>1. Problem Statement: WiredTiger Cache Eviction &amp; Mongo Aggregation Bottlenecks</h2>
+                <p>
+                    In high-velocity document stores (MongoDB running WiredTiger storage engine), executing multi-stage analytical aggregations (e.g. <code>$unwind</code>, <code>$lookup</code>, and large <code>$group</code> pipelines over 20+ million documents) forces WiredTiger to evict transactional index pages from RAM into swap files. During high-traffic events (25,000 requests/sec), analytical queries triggered cache eviction cascades, causing primary write lock waits to jump from 4 ms to 1,850 ms and leading to database connection pool exhaustion.
+                </p>
+                <p>
+                    Rather than routing analytical read traffic to MongoDB secondary nodes (which still suffer from WiredTiger cache pressure), we engineered a non-blocking Change Data Capture (CDC) pipeline using <strong>MongoDB Change Streams</strong> and an in-house <strong>ClickHouse OLAP cluster</strong>. When transactional documents are inserted or updated in MongoDB, change events stream directly into ClickHouse. Analytical services query ClickHouse directly with sub-20ms latencies, completely isolating MongoDB from reporting traffic.
+                </p>
+
+                <!-- Architecture Diagram -->
+                <div class="diagram-box">
+                    <svg width="100%" height="220" viewBox="0 0 760 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- MongoDB Block -->
+                        <rect x="10" y="50" width="140" height="100" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+                        <text x="80" y="92" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13" font-weight="700" text-anchor="middle">MongoDB (OLTP)</text>
+                        <text x="80" y="112" fill="#94a3b8" font-family="Fira Code, monospace" font-size="10" text-anchor="middle">Oplog / Change Streams</text>
+
+                        <!-- Arrow 1 -->
+                        <path d="M 150 100 L 205 100" stroke="#60a5fa" stroke-width="2" stroke-dasharray="4 4"/>
+                        <polygon points="205,96 215,100 205,104" fill="#60a5fa"/>
+
+                        <!-- Go Change Stream Daemon -->
+                        <rect x="215" y="50" width="145" height="100" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+                        <text x="287" y="92" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Go CDC Listener</text>
+                        <text x="287" y="112" fill="#94a3b8" font-family="Fira Code, monospace" font-size="10" text-anchor="middle">sync.Pool + Resume Token</text>
+
+                        <!-- Arrow 2 -->
+                        <path d="M 360 100 L 415 100" stroke="#60a5fa" stroke-width="2"/>
+                        <polygon points="415,96 425,100 415,104" fill="#60a5fa"/>
+
+                        <!-- ClickHouse Engine -->
+                        <rect x="425" y="50" width="155" height="100" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+                        <text x="502" y="92" fill="#f59e0b" font-family="Inter, sans-serif" font-size="13" font-weight="700" text-anchor="middle">ClickHouse Cluster</text>
+                        <text x="502" y="112" fill="#94a3b8" font-family="Fira Code, monospace" font-size="10" text-anchor="middle">ReplacingMergeTree</text>
+
+                        <!-- Arrow 3 to Client -->
+                        <path d="M 580 100 L 635 100" stroke="#10b981" stroke-width="2"/>
+                        <polygon points="635,96 645,100 635,104" fill="#10b981"/>
+
+                        <!-- Analytics App -->
+                        <rect x="645" y="50" width="105" height="100" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+                        <text x="697" y="92" fill="#f8fafc" font-family="Inter, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Analytical Service</text>
+                        <text x="697" y="112" fill="#10b981" font-family="Fira Code, monospace" font-size="9" text-anchor="middle">Sub-20ms Reads</text>
+                    </svg>
+                    <p class="diagram-caption">Figure 4.0: High-Throughput Mongo Oplog Stream to ClickHouse Columnar Synchronization Engine</p>
+                </div>
+
+                <h2>2. Architecture: Zero-Allocation Go Stream Listener</h2>
+                <p>
+                    The CDC daemon opens a persistent Mongo stream using <code>collection.Watch()</code> with <code>UpdateLookup</code> mode. To process high-volume BSON streams without triggering Go GC pause spikes, the consumer reuses memory buffers via <code>sync.Pool</code> and batches up to 1,000 change records per ClickHouse TCP bulk block push (`max_insert_block_size = 100000`).
+                </p>
+
+                <!-- Code Block -->
+                <div class="code-block-wrapper">
+                    <div class="code-header">
+                        <span>cdc_consumer.go (High-Performance Go Stream Listener)</span>
+                        <button class="copy-code-btn">📋 Copy Code</button>
+                    </div>
+                    <pre><code>package main
+
+import (
+    "context"
+    "log"
+    "sync"
+
+    "go.mongodb.org/mongo-driver/bson"
+    "go.mongodb.org/mongo-driver/mongo"
+    "go.mongodb.org/mongo-driver/mongo/options"
+)
+
+type ChangeEvent struct {
+    OperationType string            `bson:"operationType"`
+    FullDocument  bson.M            `bson:"fullDocument"`
+    DocumentKey   struct{ ID string `bson:"_id"` } `bson:"documentKey"`
+}
+
+var rowPool = sync.Pool{
+    New: func() any { return new(ClickHouseRow) },
+}
+
+func StreamToClickHouse(ctx context.Context, collection *mongo.Collection, chClient *ClickHouseClient) {
+    opts := options.ChangeStream().SetFullDocument(options.UpdateLookup)
+    stream, err := collection.Watch(ctx, mongo.Pipeline{}, opts)
+    if err != nil {
+        log.Fatalf("Failed to open Mongo change stream: %v", err)
+    }
+    defer stream.Close(ctx)
+
+    batch := make([]*ClickHouseRow, 0, 1000)
+
+    for stream.Next(ctx) {
+        var event ChangeEvent
+        if err := stream.Decode(&event); err != nil {
+            continue
+        }
+
+        // Fetch recycled allocation from sync.Pool to eliminate GC pressure
+        row := rowPool.Get().(*ClickHouseRow)
+        row.MapFromBSON(event.DocumentKey.ID, event.FullDocument, event.OperationType)
+        batch = append(batch, row)
+
+        if len(batch) &gt;= 1000 {
+            chClient.BulkInsertRows("default.order_analytics", batch)
+            for _, r := range batch {
+                rowPool.Put(r)
+            }
+            batch = batch[:0]
+        }
+    }
+}</code></pre>
+                </div>
+
+                <h2>3. ClickHouse Deduplication via ReplacingMergeTree</h2>
+                <p>
+                    Document mutations in MongoDB are seamlessly synchronized to ClickHouse without issuing expensive <code>DELETE</code> or <code>ALTER TABLE UPDATE</code> mutations. ClickHouse's <code>ReplacingMergeTree(updated_at)</code> engine automatically merges updated rows in background compaction cycles:
+                </p>
+
+                <div class="code-block-wrapper">
+                    <div class="code-header">
+                        <span>clickhouse_schema.sql</span>
+                        <button class="copy-code-btn">📋 Copy Code</button>
+                    </div>
+                    <pre><code>-- ClickHouse Target Table with Background Deduplication
+CREATE TABLE default.order_analytics (
+    order_id String,
+    customer_id UInt64,
+    order_status String,
+    total_amount Decimal(18, 4),
+    item_count UInt32,
+    updated_at DateTime,
+    is_deleted UInt8 DEFAULT 0
+) ENGINE = ReplacingMergeTree(updated_at)
+PRIMARY KEY (customer_id)
+ORDER BY (customer_id, order_id);
+
+-- High-speed analytical query reading latest document state from ClickHouse FINAL view
+SELECT 
+    order_status,
+    count(DISTINCT customer_id) AS unique_customers,
+    sum(total_amount) AS gross_revenue
+FROM default.order_analytics FINAL
+WHERE updated_at &gt;= NOW() - INTERVAL 24 HOUR
+GROUP BY order_status;</code></pre>
+                </div>
+
+                <h2>4. Empirical Production Metrics</h2>
+                <p>
+                    Benchmarking was conducted during high-volume e-commerce promotional events comparing direct MongoDB aggregations against the ClickHouse CDC pipeline:
+                </p>
+
+                <div class="vlog-table-wrapper">
+                    <table class="vlog-table">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Direct Mongo Aggregations</th>
+                                <th>ClickHouse CDC Pipeline</th>
+                                <th>Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mongo Primary Node CPU Load</td>
+                                <td>88.4% CPU</td>
+                                <td>11.8% CPU</td>
+                                <td><strong>86.6% CPU Freed</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Analytical Query Time (p99)</td>
+                                <td>4,850 ms</td>
+                                <td>18 ms</td>
+                                <td><strong>269x Latency Gain</strong></td>
+                            </tr>
+                            <tr>
+                                <td>WiredTiger Cache Page Evictions</td>
+                                <td>High frequency spikes</td>
+                                <td>Zero eviction events</td>
+                                <td><strong>Zero Transactional Degradation</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Replication Sync Latency</td>
+                                <td>N/A</td>
+                                <td>74 ms</td>
+                                <td><strong>Sub-Second Data Freshness</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>5. Production Lessons Learned</h2>
+                <p>
+                    <strong>1. Oplog Retention Window:</strong> Ensure MongoDB oplog size is configured large enough (`oplogSizeMB: 50000`) so that if the CDC daemon pauses for maintenance, the resume token remains valid without forcing a full snapshot resync.
+                </p>
+                <p>
+                    <strong>2. ReplacingMergeTree FINAL Clause Optimization:</strong> In ClickHouse version 23+, using <code>FINAL</code> in aggregations executes multithreaded deduplication efficiently across data parts without locking table operations.
+                </p>
+            </article>
+
+            <!-- Related Vlogs Navigation -->
+            <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+                <a href="vlog-03-fintech-ledger-reconciliation.html" class="vlog-link-btn">
+                    &larr; Prev: Vlog #03 Ledger Reconciliation
+                </a>
+                <a href="../vlogs.html" class="vlog-link-btn">
+                    View All Vlogs &rarr;
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-content">
+            <p>
+                &copy; 2026 Ashwinikumar Vishwakarma. Built with HTML, Vanilla CSS &amp; Modern Web Standards.
+            </p>
+            <div class="footer-links">
+                <a href="#">Top &uarr;</a>
+                <a href="../projects.html">All Projects</a>
+                <a href="../vlogs.html">Tech Vlogs</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/vlogs.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description"
+        content="Tech Vlogs & Systems Teardowns by Ashwinikumar Vishwakarma - Written architectural teardowns, CDC streaming pipelines, Saga consistency models, and performance benchmarks." />
+
+    <title>Tech Vlogs & Systems Teardowns | Ashwinikumar Vishwakarma</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/style.css?v=1.2.0" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                Ashwinikumar<span>.</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html#about">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span class="nav-label">About</span>
+                </a>
+                <a href="index.html#experience">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    <span class="nav-label">Experience</span>
+                </a>
+                <a href="index.html#skills">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    <span class="nav-label">Skills</span>
+                </a>
+                <a href="projects.html">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    <span class="nav-label">Projects</span>
+                </a>
+                <a href="vlogs.html" class="active">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    <span class="nav-label">Vlogs</span>
+                </a>
+                <a href="index.html#education">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                    <span class="nav-label">Education</span>
+                </a>
+                <a href="index.html#contact" class="nav-cta">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span class="nav-label">Contact</span>
+                </a>
+            </nav>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- PAGE HERO -->
+        <section class="page-hero">
+            <div class="container">
+                <p class="eyebrow">ENGINEERING SHOWCASE &amp; JOURNAL</p>
+                <h1>Architectural breakdowns &amp; <span>system findings.</span></h1>
+                <p>
+                    Technical teardowns explaining how high-throughput data streams, resilient Saga transactions, 
+                    and double-entry financial ledgers operate under production pressure.
+                </p>
+
+                <!-- Search & Filters -->
+                <div class="vlog-controls">
+                    <div class="vlog-search-wrapper">
+                        <svg class="vlog-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" id="vlog-search" class="vlog-search-input" placeholder="Search vlogs by topic or technology (e.g. Kafka, Redis, DuckDB)..." />
+                    </div>
+                    <div class="vlog-tags-bar">
+                        <button class="vlog-filter-btn active" data-tag="all">All Vlogs</button>
+                        <button class="vlog-filter-btn" data-tag="streaming">Real-Time Streaming</button>
+                        <button class="vlog-filter-btn" data-tag="distributed">Distributed Systems</button>
+                        <button class="vlog-filter-btn" data-tag="fintech">FinTech Architecture</button>
+                        <button class="vlog-filter-btn" data-tag="performance">Performance Benchmarks</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED HERO VLOG -->
+        <section class="section">
+            <div class="container">
+
+                <article class="featured-vlog-card" data-category="streaming performance">
+                    <div class="featured-vlog-body" style="grid-column: span 2;">
+                        <div>
+                            <div class="vlog-meta-header">
+                                <span>🔥 FEATURED SYSTEM TEARDOWN</span>
+                                <span>&bull; AUG 2026</span>
+                                <span>&bull; 7 MIN READ</span>
+                            </div>
+                            <h2 style="font-size: 1.6rem; margin-bottom: 12px;">Building a 100k msg/sec CDC Streaming Pipeline with Debezium, Kafka &amp; DuckDB</h2>
+                            <p style="font-size: 0.95rem; margin-bottom: 20px;">
+                                A comprehensive engineering teardown on capturing database changes in real-time without impacting transactional workloads, 
+                                transforming events via Kafka Streams, and querying micro-batches instantaneously with DuckDB.
+                            </p>
+
+                            <div class="vlog-highlights-mini">
+                                <ul>
+                                    <li>⚡ <strong>Key Finding:</strong> Reduced analytical query latency from 3.4s (Postgres) to 42ms (DuckDB in-memory cache).</li>
+                                    <li>⚙️ <strong>Architecture:</strong> Zero-downtime Change Data Capture (CDC) with PostgreSQL write-ahead logs (WAL).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="vlog-card-footer" style="margin-top: 10px;">
+                            <div class="vlog-tags-list">
+                                <span class="vlog-tag">CDC</span>
+                                <span class="vlog-tag">Kafka</span>
+                                <span class="vlog-tag">DuckDB</span>
+                                <span class="vlog-tag">Go</span>
+                            </div>
+                            <a href="vlogs/vlog-01-cdc-streaming-debezium-duckdb.html" class="vlog-link-btn" style="font-size: 0.9rem;">
+                                Read Technical Breakdown &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- VLOGS GALLERY GRID -->
+                <div class="section-title-wrapper" style="margin-top: 20px; margin-bottom: 20px;">
+                    <h2 class="section-title">All Engineering Vlogs</h2>
+                    <p class="section-subtitle">Browse recent architectural teardowns, benchmarking experiments, and production post-mortems.</p>
+                </div>
+
+                <div class="vlogs-grid">
+
+                    <!-- VLOG CARD 1 -->
+                    <article class="vlog-card" data-category="streaming performance">
+                        <div class="vlog-card-body">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <span class="vlog-meta-header" style="margin-bottom: 0;">VLOG #01 &bull; AUG 2026</span>
+                                    <span style="font-size: 0.75rem; color: var(--text-muted); font-family: 'Fira Code', monospace;">7 min read</span>
+                                </div>
+                                <h3 class="vlog-card-title">100k msg/sec CDC Streaming Pipeline with Debezium, Kafka &amp; DuckDB</h3>
+                                <p class="vlog-card-desc">
+                                    How we eliminated analytical replica lag by streaming PostgreSQL WAL logs directly into DuckDB analytical columnar caches.
+                                </p>
+                            </div>
+                            <div class="vlog-card-footer">
+                                <div class="vlog-tags-list">
+                                    <span class="vlog-tag">Debezium</span>
+                                    <span class="vlog-tag">Kafka</span>
+                                    <span class="vlog-tag">DuckDB</span>
+                                </div>
+                                <a href="vlogs/vlog-01-cdc-streaming-debezium-duckdb.html" class="vlog-link-btn">
+                                    Read &rarr;
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- VLOG CARD 2 -->
+                    <article class="vlog-card" data-category="distributed fintech">
+                        <div class="vlog-card-body">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <span class="vlog-meta-header" style="margin-bottom: 0;">VLOG #02 &bull; JUL 2026</span>
+                                    <span style="font-size: 0.75rem; color: var(--text-muted); font-family: 'Fira Code', monospace;">6 min read</span>
+                                </div>
+                                <h3 class="vlog-card-title">Distributed Saga Transactions: Resolving Out-of-Order Webhooks</h3>
+                                <p class="vlog-card-desc">
+                                    Solving race conditions when processing millions of payment webhooks delivered out of chronological sequence using Redis Redlock and Saga state machines.
+                                </p>
+                            </div>
+                            <div class="vlog-card-footer">
+                                <div class="vlog-tags-list">
+                                    <span class="vlog-tag">.NET Core</span>
+                                    <span class="vlog-tag">Saga</span>
+                                    <span class="vlog-tag">Redis</span>
+                                </div>
+                                <a href="vlogs/vlog-02-saga-distributed-transactions.html" class="vlog-link-btn">
+                                    Read &rarr;
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- VLOG CARD 3 -->
+                    <article class="vlog-card" data-category="fintech performance distributed">
+                        <div class="vlog-card-body">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <span class="vlog-meta-header" style="margin-bottom: 0;">VLOG #03 &bull; JUN 2026</span>
+                                    <span style="font-size: 0.75rem; color: var(--text-muted); font-family: 'Fira Code', monospace;">8 min read</span>
+                                </div>
+                                <h3 class="vlog-card-title">Post-Trade Management &amp; Reconciliation Engine for Exchange &amp; Broker Feeds</h3>
+                                <p class="vlog-card-desc">
+                                    Automated back-office reconciliation engine auditing multi-asset traded transactions between exchange execution drops and third-party broker clearing statements.
+                                </p>
+                            </div>
+                            <div class="vlog-card-footer">
+                                <div class="vlog-tags-list">
+                                    <span class="vlog-tag">Post-Trade</span>
+                                    <span class="vlog-tag">Reconciliation</span>
+                                    <span class="vlog-tag">Broker Feeds</span>
+                                </div>
+                                <a href="vlogs/vlog-03-fintech-ledger-reconciliation.html" class="vlog-link-btn">
+                                    Read &rarr;
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- VLOG CARD 4 -->
+                    <article class="vlog-card" data-category="streaming performance distributed">
+                        <div class="vlog-card-body">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <span class="vlog-meta-header" style="margin-bottom: 0;">VLOG #04 &bull; AUG 2026</span>
+                                    <span style="font-size: 0.75rem; color: var(--text-muted); font-family: 'Fira Code', monospace;">9 min read</span>
+                                </div>
+                                <h3 class="vlog-card-title">Real-Time MongoDB to ClickHouse CDC Pipeline via Mongo Change Streams</h3>
+                                <p class="vlog-card-desc">
+                                    Offloading heavy analytical aggregations from MongoDB to ClickHouse in real-time using Mongo Change Streams and ReplacingMergeTree.
+                                </p>
+                            </div>
+                            <div class="vlog-card-footer">
+                                <div class="vlog-tags-list">
+                                    <span class="vlog-tag">MongoDB</span>
+                                    <span class="vlog-tag">ClickHouse</span>
+                                    <span class="vlog-tag">CDC</span>
+                                </div>
+                                <a href="vlogs/vlog-04-mongodb-clickhouse-cdc-sync.html" class="vlog-link-btn">
+                                    Read &rarr;
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="section" style="background: rgba(15, 23, 42, 0.4); border-top: 1px solid var(--border);">
+            <div class="container text-center" style="max-width: 680px; text-align: center; padding: 40px 20px;">
+                <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 12px; color: var(--text);">
+                    Have a topic suggestion or system teardown request?
+                </h2>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px;">
+                    I regularly publish technical teardowns on distributed systems architecture, concurrency bugs, and cloud cost optimizations.
+                </p>
+                <a href="index.html#contact" class="button primary-button">
+                    Suggest a Tech Topic &rarr;
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-content">
+            <p>
+                &copy; 2026 Ashwinikumar Vishwakarma. Built with HTML, Vanilla CSS &amp; Modern Web Standards.
+            </p>
+            <div class="footer-links">
+                <a href="#">Top &uarr;</a>
+                <a href="projects.html">All Projects</a>
+                <a href="vlogs.html">Tech Vlogs</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./assets/vlogs.js"></script>
+</body>
+
+</html>

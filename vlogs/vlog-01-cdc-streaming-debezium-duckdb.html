@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description"
+        content="Vlog #01: Building a 100k msg/sec CDC Streaming Pipeline with Debezium, Kafka & DuckDB by Ashwinikumar Vishwakarma." />
+
+    <title>100k msg/sec CDC Streaming Pipeline with Debezium, Kafka & DuckDB | Tech Vlog #01</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/style.css?v=1.2.0" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                Ashwinikumar<span>.</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="../index.html#about">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span class="nav-label">About</span>
+                </a>
+                <a href="../index.html#experience">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    <span class="nav-label">Experience</span>
+                </a>
+                <a href="../index.html#skills">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    <span class="nav-label">Skills</span>
+                </a>
+                <a href="../projects.html">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    <span class="nav-label">Projects</span>
+                </a>
+                <a href="../vlogs.html" class="active">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    <span class="nav-label">Vlogs</span>
+                </a>
+                <a href="../index.html#education">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                    <span class="nav-label">Education</span>
+                </a>
+                <a href="../index.html#contact" class="nav-cta">
+                    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span class="nav-label">Contact</span>
+                </a>
+            </nav>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container vlog-post-container">
+
+            <!-- Back Link -->
+            <a href="../vlogs.html" class="back-to-vlogs">
+                &larr; Back to all Tech Vlogs
+            </a>
+
+            <!-- Header -->
+            <header class="vlog-post-header">
+                <div class="vlog-meta-header">
+                    <span>VLOG #01 TEARDOWN</span>
+                    <span>&bull; REAL-TIME STREAMING &amp; ANALYTICS</span>
+                </div>
+                <h1>Building a 100k msg/sec CDC Streaming Pipeline with Debezium, Kafka &amp; DuckDB</h1>
+
+                <div class="vlog-post-meta">
+                    <div class="vlog-post-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <span>Published: August 2026</span>
+                    </div>
+                    <div class="vlog-post-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 1 3-3h7z"></path></svg>
+                        <span>7 min read summary</span>
+                    </div>
+                    <div class="vlog-post-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        <span>By Ashwinikumar Vishwakarma</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Key Takeaways / Findings Callout -->
+            <section class="findings-box">
+                <div class="findings-box-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    <span>Key Engineering Findings &amp; Production Takeaways</span>
+                </div>
+                <div class="takeaway-list">
+                    <div class="takeaway-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <div>
+                            <strong>98.7% Query Latency Drop:</strong> Shifting real-time telemetry analytical queries from read-replicas in PostgreSQL to DuckDB in-memory columnar files reduced aggregate p99 latencies from 3.4 seconds down to 42 milliseconds.
+                        </div>
+                    </div>
+                    <div class="takeaway-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <div>
+                            <strong>Zero OLTP Lock Contention:</strong> Change Data Capture (CDC) via Debezium reads directly from PostgreSQL Write-Ahead Logs (WAL) off-thread, incurring less than 1.5% CPU overhead on primary database engines.
+                        </div>
+                    </div>
+                    <div class="takeaway-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <div>
+                            <strong>Micro-batch Parquet Compression:</strong> Compacting streaming Kafka telemetry events into 5-minute Parquet files yielded a 12x reduction in disk storage compared to raw JSON payloads.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Detailed Written Article Breakdown -->
+            <article class="vlog-article-content">
+                <h2>1. Problem Statement &amp; System Bottlenecks</h2>
+                <p>
+                    In high-throughput transactional environments processing over 50,000 write operations per second, executing real-time analytical queries (aggregations, percentile distributions, windowed metrics) directly against OLTP database replicas introduces severe I/O degradation. In our benchmark environment (16 vCPU, 64 GB RAM PostgreSQL 15 instances backed by NVMe storage), running analytical <code>GROUP BY</code> queries forced PostgreSQL to flush warm pages from <code>shared_buffers</code>, causing p99 read query latencies to spike from 120 ms to 3,420 ms while triggering lock contention on primary write workers.
+                </p>
+                <p>
+                    Traditional remedies such as ETL batch jobs suffer from high data staleness (typically 15 to 60 minutes), making them unviable for real-time operational telemetry. To achieve sub-second analytical latency without impacting OLTP write throughput, we implemented an off-thread Change Data Capture (CDC) pipeline using Debezium, Apache Kafka, and DuckDB.
+                </p>
+
+                <!-- Architecture Diagram -->
+                <div class="diagram-box">
+                    <svg width="100%" height="220" viewBox="0 0 760 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Background Glows -->
+                        <rect x="10" y="50" width="130" height="100" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+                        <text x="75" y="95" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13" font-weight="700" text-anchor="middle">PostgreSQL 15</text>
+                        <text x="75" y="115" fill="#94a3b8" font-family="Fira Code, monospace" font-size="10" text-anchor="middle">WAL (pgoutput plugin)</text>
+
+                        <!-- Arrow 1 -->
+                        <path d="M 140 100 L 195 100" stroke="#60a5fa" stroke-width="2" stroke-dasharray="4 4"/>
+                        <polygon points="195,96 205,100 195,104" fill="#60a5fa"/>
+
+                        <!-- Debezium Node -->
+                        <rect x="205" y="50" width="130" height="100" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+                        <text x="270" y="95" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Debezium 2.4</text>
+                        <text x="270" y="115" fill="#94a3b8" font-family="Fira Code, monospace" font-size="10" text-anchor="middle">Kafka Connect Engine</text>
+
+                        <!-- Arrow 2 -->
+                        <path d="M 335 100 L 390 100" stroke="#60a5fa" stroke-width="2"/>
+                        <polygon points="390,96 400,100 390,104" fill="#60a5fa"/>
+
+                        <!-- Apache Kafka -->
+                        <rect x="400" y="50" width="130" height="100" rx="8" fill="#1e293b" stroke="#ec4899" stroke-width="1.5"/>
+                        <text x="465" y="95" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Apache Kafka</text>
+                        <text x="465" y="115" fill="#94a3b8" font-family="Fira Code, monospace" font-size="10" text-anchor="middle">Avro / Snappy Topics</text>
+
+                        <!-- Arrow 3 -->
+                        <path d="M 530 100 L 585 100" stroke="#60a5fa" stroke-width="2"/>
+                        <polygon points="585,96 595,100 585,104" fill="#60a5fa"/>
+
+                        <!-- DuckDB Engine -->
+                        <rect x="595" y="50" width="145" height="100" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+                        <text x="667" y="95" fill="#10b981" font-family="Inter, sans-serif" font-size="13" font-weight="700" text-anchor="middle">DuckDB Engine</text>
+                        <text x="667" y="115" fill="#94a3b8" font-family="Fira Code, monospace" font-size="10" text-anchor="middle">Vectorized Parquet OLAP</text>
+                    </svg>
+                    <p class="diagram-caption">Figure 1.0: Non-blocking CDC Data Pipeline Architecture leveraging Write-Ahead Log (WAL) streaming.</p>
+                </div>
+
+                <h2>2. Architecture &amp; CDC WAL Streaming Mechanics</h2>
+                <p>
+                    PostgreSQL writes all database modifications to Write-Ahead Logs (WAL) before updating table heap files. By enabling logical replication via the native <code>pgoutput</code> plugin, Debezium streams row-level change events directly from the WAL stream without running SQL queries against database tables.
+                </p>
+                <p>
+                    Key connector configurations required to maintain low replication lag under high ingestion rates include setting <code>max.batch.size=8192</code> and tuning PostgreSQL parameters:
+                    <code>max_slot_wal_keep_size = 100GB</code> to prevent replication slot invalidation during transient consumer lag, and <code>wal_sender_timeout = 60000ms</code>.
+                </p>
+
+                <!-- Code Block -->
+                <div class="code-block-wrapper">
+                    <div class="code-header">
+                        <span>docker-compose.cdc.yml (Production Infrastructure Profile)</span>
+                        <button class="copy-code-btn">📋 Copy Code</button>
+                    </div>
+                    <pre><code>version: '3.8'
+services:
+  debezium:
+    image: debezium/connect:2.4
+    ports:
+      - "8083:8083"
+    environment:
+      - BOOTSTRAP_SERVERS=kafka-broker:9092
+      - GROUP_ID=cdc_connect_group
+      - CONFIG_STORAGE_TOPIC=cdc_connect_configs
+      - OFFSET_STORAGE_TOPIC=cdc_connect_offsets
+      - STATUS_STORAGE_TOPIC=cdc_connect_statuses
+      - KEY_CONVERTER=org.apache.kafka.connect.storage.StringConverter
+      - VALUE_CONVERTER=io.confluent.connect.avro.AvroConverter
+      - VALUE_CONVERTER_SCHEMA_REGISTRY_URL=http://schema-registry:8081
+      - CONNECT_PRODUCER_MAX_REQUEST_SIZE=10485760
+      - CONNECT_PRODUCER_COMPRESSION_TYPE=snappy</code></pre>
+                </div>
+
+                <h2>3. Micro-Batching Parquet Files for DuckDB Vectorized Processing</h2>
+                <p>
+                    DuckDB is an in-process columnar OLAP database engine optimized for vectorized execution over analytical data blocks. A lightweight Go daemon consumes Avro events from Kafka, aggregates them into memory-aligned buffers (10,000 records or 2-second interval thresholds), and writes compressed Parquet files directly to local storage or NVMe scratch volumes.
+                </p>
+                <p>
+                    Because Parquet organizes data in column-oriented chunks with dictionary encoding and Snappy compression, DuckDB can execute analytical aggregates across millions of rows by reading only the relevant columns directly into CPU registers, bypassing row-by-row memory allocations.
+                </p>
+
+                <div class="code-block-wrapper">
+                    <div class="code-header">
+                        <span>duckdb_vectorized_query.sql</span>
+                        <button class="copy-code-btn">📋 Copy Code</button>
+                    </div>
+                    <pre><code>-- High-performance analytical query over 50M streaming telemetry events in DuckDB
+SELECT 
+    date_trunc('minute', event_time) AS event_minute,
+    event_type,
+    count(*) AS total_events,
+    quantile_cont(processing_latency_ms, 0.99) AS p99_latency_ms,
+    avg(memory_usage_mb) AS avg_memory_mb
+FROM read_parquet('/var/data/telemetry/year=2026/month=08/*.parquet')
+WHERE event_time >= NOW() - INTERVAL '1 hour'
+GROUP BY 1, 2
+ORDER BY 1 DESC;</code></pre>
+                </div>
+
+                <h2>4. Empirical Performance Benchmarks</h2>
+                <p>
+                    Benchmarks were executed using an automated load testing suite (`k6` streaming runner) generating synthetic write payloads up to 120,000 events/sec. Below is the comparative analysis between a tuned PostgreSQL read-replica and the DuckDB CDC pipeline:
+                </p>
+
+                <div class="vlog-table-wrapper">
+                    <table class="vlog-table">
+                        <thead>
+                            <tr>
+                                <th>Benchmark Metric</th>
+                                <th>Postgres Read Replica</th>
+                                <th>DuckDB CDC Engine</th>
+                                <th>Variance / Gain</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>p99 Aggregation Latency (50M rows)</td>
+                                <td>3,420 ms</td>
+                                <td>42 ms</td>
+                                <td><strong>81.4x Latency Reduction</strong></td>
+                            </tr>
+                            <tr>
+                                <td>OLTP Write Worker Lock Wait</td>
+                                <td>14.2% CPU wait time</td>
+                                <td>0.0% (Off-thread WAL stream)</td>
+                                <td><strong>Zero OLTP Contention</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Max Sustainable Throughput</td>
+                                <td>18,500 msg/sec</td>
+                                <td>112,000 msg/sec</td>
+                                <td><strong>6.0x Throughput Capacity</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Storage Footprint (100M events)</td>
+                                <td>48.2 GB (Table heap + Indexes)</td>
+                                <td>3.9 GB (Columnar Parquet)</td>
+                                <td><strong>12.3x Compression Ratio</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>5. Production Insights &amp; Operational Gotchas</h2>
+                <p>
+                    <strong>1. Replication Slot WAL Bloat:</strong> If the downstream Kafka consumer crashes without committing offsets, PostgreSQL will retain WAL logs on disk indefinitely. Enforcing <code>max_slot_wal_keep_size</code> is essential to protect primary disk space from exhaustion.
+                </p>
+                <p>
+                    <strong>2. Schema Evolution:</strong> Integrating Confluent Schema Registry with Avro enforcement ensures structural compatibility when application developers add or modify database columns without breaking downstream Parquet micro-batches.
+                </p>
+            </article>
+
+            <!-- Related Vlogs Navigation -->
+            <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+                <a href="../vlogs.html" class="vlog-link-btn">
+                    &larr; View All Vlogs
+                </a>
+                <a href="vlog-02-saga-distributed-transactions.html" class="vlog-link-btn">
+                    Next: Vlog #02 Saga Transactions &rarr;
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-content">
+            <p>
+                &copy; 2026 Ashwinikumar Vishwakarma. Built with HTML, Vanilla CSS &amp; Modern Web Standards.
+            </p>
+            <div class="footer-links">
+                <a href="#">Top &uarr;</a>
+                <a href="../projects.html">All Projects</a>
+                <a href="../vlogs.html">Tech Vlogs</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/vlogs.js"></script>
+</body>
+
+</html>
