@@ -34,6 +34,98 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // 1c. Recruiter Fast-Track Drawer Logic
+    const openDrawerBtn = document.getElementById('open-recruiter-drawer');
+    const closeDrawerBtn = document.getElementById('close-recruiter-drawer');
+    const drawerOverlay = document.getElementById('recruiter-drawer-overlay');
+
+    if (openDrawerBtn && drawerOverlay) {
+        openDrawerBtn.addEventListener('click', () => {
+            drawerOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    if (closeDrawerBtn && drawerOverlay) {
+        closeDrawerBtn.addEventListener('click', () => {
+            drawerOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+
+    if (drawerOverlay) {
+        drawerOverlay.addEventListener('click', (e) => {
+            if (e.target === drawerOverlay) {
+                drawerOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
+    // 1d. Hero Telemetry Tabs & Latency Benchmark Slider
+    const tabBtns = document.querySelectorAll('.dash-tab-btn');
+    const latencySlider = document.getElementById('latency-slider');
+    const latencyVal = document.getElementById('slider-latency-val');
+    const quoteText = document.getElementById('impact-quote-text');
+
+    if (tabBtns.length > 0) {
+        const tabData = {
+            cdc: {
+                title: "CDC Pipeline Throughput",
+                desc: "Debezium • Kafka • DuckDB Vector OLAP",
+                quote: "“81.4x Latency Reduction over Postgres Read Replicas via Off-Thread WAL Streaming.”",
+                latency: 42,
+                label: "42 ms (DuckDB Vector)"
+            },
+            rec: {
+                title: "Post-Trade Rec Engine",
+                desc: "FIX 4.4 • SWIFT MT515 • 4-Way Match",
+                quote: "“99.8% Straight-Through Match Rate across 5M Daily Trade Executions.”",
+                latency: 450,
+                label: "450 ms (Intraday Rec Stream)"
+            },
+            sec: {
+                title: "KeyVault E2E Security",
+                desc: "PBKDF2 SHA-256 • AES-256-GCM • Go API",
+                quote: "“Zero-Knowledge Architecture with 15-Minute In-Memory Key Auto-Purge.”",
+                latency: 18,
+                label: "18 ms (Zero-Knowledge Pass)"
+            }
+        };
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const key = btn.getAttribute('data-tab');
+                const info = tabData[key];
+                if (info && quoteText) {
+                    quoteText.innerText = info.quote;
+                    if (latencySlider && latencyVal) {
+                        latencySlider.value = info.latency;
+                        latencyVal.innerText = info.label;
+                    }
+                }
+            });
+        });
+    }
+
+    if (latencySlider && latencyVal) {
+        latencySlider.addEventListener('input', (e) => {
+            const val = parseInt(e.target.value, 10);
+            if (val < 100) {
+                latencyVal.innerText = `${val} ms (DuckDB Vector OLAP)`;
+                latencyVal.style.color = '#10b981';
+            } else if (val < 1000) {
+                latencyVal.innerText = `${val} ms (ClickHouse / Redis Hash)`;
+                latencyVal.style.color = '#3b82f6';
+            } else {
+                latencyVal.innerText = `${val} ms (Postgres Read Replica - Degraded)`;
+                latencyVal.style.color = '#ef4444';
+            }
+        });
+    }
+
     // 2. Vlog Filtering & Search Logic (on vlogs.html hub page)
     const searchInput = document.getElementById('vlog-search');
     const filterBtns = document.querySelectorAll('.vlog-filter-btn');

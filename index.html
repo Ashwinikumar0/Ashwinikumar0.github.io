@@ -6,9 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta name="description"
-        content="Ashwinikumar Vishwakarma - Senior Full Stack Software Engineer & Technical Integration Manager specializing in distributed systems, real-time data streaming, financial tech, and cloud architecture." />
+        content="Ashwinikumar Vishwakarma - Full Stack Software Engineer & Technical Integration Manager specializing in distributed systems, real-time data streaming, financial tech, and cloud architecture." />
 
-    <title>Ashwinikumar Vishwakarma | Senior Full Stack Engineer</title>
+    <title>Ashwinikumar Vishwakarma | Full Stack Engineer</title>
+
+    <!-- Open Graph / LinkedIn Social Cards -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ashwinikumar0.github.io/" />
+    <meta property="og:title" content="Ashwinikumar Vishwakarma | Full Stack Engineer & Technical Lead" />
+    <meta property="og:description" content="Full Stack Engineer & Technical Integration Manager specializing in distributed systems, real-time data streaming (Debezium/Kafka/DuckDB), financial tech (CME SPAN2, FIX Protocol), and cloud architecture." />
+    <meta property="og:image" content="https://ashwinikumar0.github.io/assets/og-preview.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ashwinikumar Vishwakarma | Full Stack Engineer" />
+    <meta name="twitter:description" content="Architecting scalable financial infrastructure, real-time telemetry streaming pipelines, and distributed saga transactions." />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +30,7 @@
         rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./assets/style.css?v=1.0.2" />
+    <link rel="stylesheet" href="./assets/style.css?v=1.0.3" />
 </head>
 
 <body>
@@ -77,15 +89,15 @@
                 <div class="hero-text">
                     <div class="location-badge">
                         <span class="pulse-dot"></span>
-                        Dubai, UAE &bull; Technical Integration Manager & Senior Full Stack Engineer
+                        Dubai, UAE &bull; Technical Integration Manager &amp; Full Stack Engineer
                     </div>
 
                     <h1 class="hero-title">
-                        Architecting scalable <span>financial infrastructure</span> & real-time analytics.
+                        Architecting scalable <span>financial infrastructure</span> &amp; real-time analytics.
                     </h1>
 
                     <p class="hero-description">
-                        Senior engineer building enterprise-grade financial systems, high-volume SaaS analytics
+                        Full Stack engineer building enterprise-grade financial systems, high-volume SaaS analytics
                         platforms, real-time telemetry streaming pipelines (Debezium/Kafka/DuckDB), and automated
                         workflows.
                     </p>
@@ -94,60 +106,55 @@
                         <a href="#projects" class="button primary-button">
                             Explore Engineering Projects &rarr;
                         </a>
-                        <a href="#contact" class="button secondary-button">
-                            Get In Touch
-                        </a>
+                        <button class="button secondary-button recruiter-trigger-btn" id="open-recruiter-drawer">
+                            ⚡ Quick Facts
+                        </button>
                     </div>
                 </div>
 
                 <div class="hero-card">
                     <div class="hero-dashboard">
-                        <div class="dashboard-header">
+                        <div class="dashboard-header" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px;">
                             <div class="status-indicator">
                                 <span class="status-dot"></span>
-                                <span class="status-text">SYSTEM STATUS &bull; OPERATIONAL</span>
+                                <span class="status-text">PRODUCTION SYSTEM ARCHITECTURE</span>
                             </div>
-                            <span class="dashboard-badge">ENTERPRISE LEAD</span>
+                            <span class="dashboard-badge">BENCHMARK VERIFIED</span>
                         </div>
 
-                        <div class="dashboard-body">
+                        <!-- Interactive Tabs -->
+                        <div class="dash-tabs-header">
+                            <button class="dash-tab-btn active" data-tab="cdc">⚡ CDC Stream (DuckDB)</button>
+                            <button class="dash-tab-btn" data-tab="rec">🏦 Post-Trade Engine</button>
+                            <button class="dash-tab-btn" data-tab="sec">🔒 KeyVault Security</button>
+                        </div>
+
+                        <div class="dashboard-body" id="tab-content-area">
                             <div class="dashboard-row">
                                 <span class="row-icon">⚡</span>
                                 <div>
-                                    <div class="row-title">Real-Time Data Pipelines</div>
-                                    <div class="row-desc">Debezium &bull; Kafka &bull; DuckDB &bull; Redis</div>
+                                    <div class="row-title">CDC Pipeline Throughput</div>
+                                    <div class="row-desc">Debezium &bull; Kafka &bull; DuckDB Vector OLAP</div>
                                 </div>
                             </div>
 
-                            <div class="dashboard-row">
-                                <span class="row-icon">🏦</span>
-                                <div>
-                                    <div class="row-title">Financial Engine Automation</div>
-                                    <div class="row-desc">CME SPAN2 &bull; FIX Protocol &bull; C# / .NET</div>
+                            <div class="interactive-metric-slider">
+                                <div class="slider-label">
+                                    <span>Query Execution Benchmark Latency</span>
+                                    <strong id="slider-latency-val" style="color: #10b981; font-family: 'Fira Code', monospace;">42 ms (DuckDB)</strong>
                                 </div>
-                            </div>
-
-                            <div class="dashboard-row">
-                                <span class="row-icon">🔒</span>
-                                <div>
-                                    <div class="row-title">Zero-Knowledge Security</div>
-                                    <div class="row-desc">KeyVault &bull; AES-256-GCM &bull; PBKDF2 &bull; Go</div>
-                                </div>
-                            </div>
-
-                            <div class="dashboard-row">
-                                <span class="row-icon">🚀</span>
-                                <div>
-                                    <div class="row-title">Full Stack Analytics</div>
-                                    <div class="row-desc">Next.js &bull; TypeScript &bull; Node.js &bull; MongoDB</div>
+                                <input type="range" min="10" max="3500" value="42" class="latency-range" id="latency-slider" />
+                                <div style="display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-muted); margin-top: 4px;">
+                                    <span>DuckDB Vector (42ms)</span>
+                                    <span>Postgres Replica (3,420ms)</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="dashboard-footer">
-                            <span class="impact-label">CORE ENGINEERING MINDSET</span>
-                            <div class="impact-quote">
-                                &ldquo;Architect for Zero-Downtime Resilience. Stream in Real-Time.&rdquo;
+                            <span class="impact-label">SYSTEM HIGHLIGHT</span>
+                            <div class="impact-quote" id="impact-quote-text">
+                                &ldquo;81.4x Latency Reduction over Postgres Read Replicas via Off-Thread WAL Streaming.&rdquo;
                             </div>
                         </div>
                     </div>
@@ -188,7 +195,7 @@
                 <div class="about-grid">
                     <div class="about-bio">
                         <p>
-                            I am a <strong>Senior Full Stack Software Engineer & Technical Integration Manager</strong>
+                            I am a <strong>Full Stack Software Engineer &amp; Technical Integration Manager</strong>
                             based in Dubai, UAE.
                             I design, architect, and deploy high-availability distributed systems,
                             financial transaction engines, and real-time analytical streaming platforms.
@@ -268,8 +275,8 @@
                             <li>
                                 Engineered a real-time telemetry sink microservice using <strong>Debezium and
                                     Kafka</strong> to stream high-volume game data (players, bets, transactions, RTP)
-                                directly into <strong>DuckDB</strong>, serving as a lightning-fast analytical database
-                                with Azure Blob backups.
+                                directly into <strong>DuckDB &amp; ClickHouse</strong>, serving as lightning-fast analytical database
+                                engines with Azure Blob backups.
                             </li>
                             <li>
                                 Implemented granular, custom <strong>Role-Based Access Control (RBAC)</strong> across
@@ -292,6 +299,7 @@
                             <span>Kafka</span>
                             <span>Debezium</span>
                             <span>DuckDB</span>
+                            <span>ClickHouse</span>
                             <span>Azure DevOps</span>
                             <span>RBAC</span>
                         </div>
@@ -889,6 +897,68 @@
             </div>
         </div>
     </footer>
+
+    <!-- RECRUITER FAST-TRACK DRAWER MODAL -->
+    <div class="recruiter-drawer-overlay" id="recruiter-drawer-overlay">
+        <div class="recruiter-drawer">
+            <div class="drawer-header">
+                <div>
+                    <span class="vlog-meta-header" style="margin-bottom: 2px;">TEARDOWN</span>
+                    <h3 class="drawer-title">Executive Summary</h3>
+                </div>
+                <button class="drawer-close-btn" id="close-recruiter-drawer" aria-label="Close Drawer">&times;</button>
+            </div>
+
+            <div style="margin-bottom: 24px;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                    <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #10b981;"></span>
+                    <strong style="color: var(--text); font-size: 0.92rem;">Full Stack &amp; Technical Integration Lead</strong>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.84rem; line-height: 1.5; margin-bottom: 16px;">
+                    Based in Dubai, UAE. Architecting distributed streaming platforms (100k msg/sec CDC via Debezium &amp; DuckDB), automated financial settlement engines (CME SPAN2 &amp; FIX Protocol), and zero-knowledge security suites.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 24px; padding: 16px; background: rgba(30, 41, 59, 0.4); border: 1px solid var(--border); border-radius: var(--radius-md);">
+                <span class="impact-label">PROVEN PRODUCTION METRICS</span>
+                <ul style="padding-left: 18px; margin-top: 8px; font-size: 0.82rem; color: var(--text); display: flex; flex-direction: column; gap: 6px;">
+                    <li><strong>81.4x Query Speedup:</strong> 3.4s down to 42ms p99 via DuckDB OLAP.</li>
+                    <li><strong>40% Processing Speedup:</strong> Automated CME SPAN2 API margin calculations.</li>
+                    <li><strong>80% Tracking Reduction:</strong> Case Management System for risk &amp; compliance alerts.</li>
+                    <li><strong>99.8% STP Rate:</strong> Sub-second post-trade matching engine across exchange &amp; broker feeds.</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 28px;">
+                <span class="impact-label" style="margin-bottom: 10px;">PRIMARY TECH STACK</span>
+                <div class="role-tags" style="display: flex; flex-wrap: wrap; gap: 6px;">
+                    <span>C# / .NET Core</span>
+                    <span>Go</span>
+                    <span>TypeScript</span>
+                    <span>Next.js (App Router)</span>
+                    <span>Node.js</span>
+                    <span>Kafka</span>
+                    <span>Debezium</span>
+                    <span>DuckDB</span>
+                    <span>ClickHouse</span>
+                    <span>PostgreSQL</span>
+                    <span>MongoDB</span>
+                    <span>Redis</span>
+                    <span>Docker</span>
+                    <span>Azure DevOps</span>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <a href="mailto:ashwinivishwakarma98@gmail.com" class="button primary-button" style="text-align: center; justify-content: center;">
+                    📧 Email Ashwinikumar Directly
+                </a>
+                <a href="https://github.com/Ashwinikumar0" target="_blank" rel="noopener noreferrer" class="button secondary-button" style="text-align: center; justify-content: center;">
+                    🌐 Explore GitHub Profile &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
 
     <script src="./assets/vlogs.js"></script>
 </body>
